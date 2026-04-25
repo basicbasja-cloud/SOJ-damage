@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Justice Online — Full Build Guide by Patch (PVE + PVP)</title>
+<style>
+:root{--bg:#0a0a10;--c1:#14141e;--c2:#1c1c2a;--c3:#22222e;--g:#d4a843;--gl:#f5d48b;--gd:#a07828;--t:#e8e0d0;--dm:#9a917e;--r:#e74c3c;--b:#3498db;--gn:#2ecc71;--p:#9b59b6;--o:#e67e22;--bdr:#2a2a3a}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Segoe UI',sans-serif;background:var(--bg);color:var(--t);line-height:1.7}
+.hero{background:linear-gradient(135deg,#08080e,#1a1028,#08080e);border-bottom:2px solid var(--gd);text-align:center;padding:40px 16px 32px}
+.hero h1{font-size:2.4rem;color:var(--g);text-shadow:0 0 18px rgba(212,168,67,.3);letter-spacing:2px}.hero .s{color:var(--dm);margin-top:4px}.hero .b{display:inline-block;margin-top:10px;padding:3px 14px;border:1px solid var(--gd);border-radius:18px;font-size:.8rem;color:var(--gl)}
+.w{max-width:1200px;margin:0 auto;padding:0 12px}
+.toc{background:var(--c1);border:1px solid var(--bdr);border-radius:10px;margin:24px auto;padding:18px 24px}.toc h2{color:var(--g);font-size:1.1rem;margin-bottom:8px}.toc ul{list-style:none;column-count:2;column-gap:24px}.toc li{padding:2px 0}.toc a{color:var(--gl);font-size:.88rem;text-decoration:none}.toc a:hover{text-decoration:underline}
+.sec{background:var(--c1);border:1px solid var(--bdr);border-radius:10px;margin:18px 0;overflow:hidden}
+.sh{background:linear-gradient(90deg,var(--c2),var(--c1));padding:12px 18px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--bdr);user-select:none}
+.sh:hover{background:var(--c3)}.sh h2{font-size:1.15rem;color:var(--g);display:flex;align-items:center;gap:6px;flex-wrap:wrap}.sh .a{color:var(--gd);font-size:1.2rem;transition:transform .3s}.sh.on .a{transform:rotate(180deg)}
+.sb{padding:18px;display:none}.sb.show{display:block}
+.pt{display:inline-block;padding:2px 10px;border-radius:5px;font-size:.75rem;font-weight:700;margin-right:4px}
+.p1{background:#8e44ad;color:#fff}.p13{background:#27ae60;color:#fff}.p2{background:#c0392b;color:#fff}.p22{background:#d35400;color:#fff}.p3{background:#f39c12;color:#000}
+.mode{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.72rem;font-weight:700;margin:0 2px}
+.pve{background:#2ecc71;color:#000}.pvp{background:#e74c3c;color:#fff}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.82rem}th{background:var(--c2);color:var(--g);padding:7px 6px;text-align:center;border:1px solid var(--bdr);font-weight:700;white-space:nowrap}td{padding:6px;text-align:center;border:1px solid var(--bdr);vertical-align:top}tr:nth-child(even){background:rgba(255,255,255,.015)}tr:hover{background:rgba(212,168,67,.05)}
+.fb{background:#10101a;border-left:3px solid var(--g);border-radius:5px;padding:10px 14px;margin:8px 0;font-size:.85rem;overflow-x:auto;white-space:pre-wrap;font-family:Consolas,monospace}
+.fb .l{color:var(--gl);font-weight:700;display:block;margin-bottom:3px;font-size:.78rem;letter-spacing:1px}
+.tip{background:rgba(212,168,67,.07);border:1px solid var(--gd);border-radius:7px;padding:10px 14px;margin:10px 0;font-size:.85rem}.tip strong{color:var(--gl)}
+h3.ss{color:var(--gl);margin:14px 0 6px;font-size:1rem}h4.sub{color:var(--g);margin:10px 0 4px;font-size:.92rem;border-bottom:1px solid var(--bdr);padding-bottom:3px}
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px;margin-top:10px}
+.cc{background:var(--c2);border:1px solid var(--bdr);border-radius:8px;padding:14px;transition:border-color .3s}.cc:hover{border-color:var(--gd)}
+.cc h3{font-size:1rem;margin-bottom:6px;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.rt{font-size:.68rem;padding:2px 6px;border-radius:3px;font-weight:700}
+.dps{background:var(--r);color:#fff}.tnk{background:var(--b);color:#fff}.hea{background:var(--gn);color:#000}.sup{background:var(--p);color:#fff}
+.sl{font-size:.82rem;padding:1px 0;display:flex;justify-content:space-between;gap:4px}.sl .lb{color:var(--dm);white-space:nowrap}.sl .vl{color:var(--gl);font-weight:700;text-align:right}
+.cc hr{border:none;border-top:1px solid var(--bdr);margin:6px 0}.cc .nt{font-size:.76rem;color:var(--dm);margin-top:4px;line-height:1.4}
+.tier{display:inline-block;padding:1px 7px;border-radius:3px;font-weight:700;font-size:.72rem;min-width:24px;text-align:center}
+.t0{background:#e74c3c;color:#fff}.t1{background:#e67e22;color:#fff}.t15{background:#d4a843;color:#000}.t2{background:#3498db;color:#fff}.t3{background:#666;color:#ccc}
+.footer{text-align:center;padding:24px 16px;color:var(--dm);font-size:.74rem;border-top:1px solid var(--bdr);margin-top:30px}
+@media(max-width:700px){.hero h1{font-size:1.5rem}.toc ul{column-count:1}.cg{grid-template-columns:1fr}.sb{padding:10px}table{font-size:.75rem}td,th{padding:4px 3px}}
+td.left{text-align:left}
+</style>
+</head>
+<body>
+
+<header class="hero">
+<h1>⚔️ Justice Online ⚔️</h1>
+<p class="s">逆水寒 — Full Build Guide: Every Class × Every Patch × PVE + PVP</p>
+<span class="b">Updated: April 2026 | Patches 1.2.1 → 3.1.x | PVE + PVP (Guild League)</span>
+</header>
+
+<div class="w">
+
+<nav class="toc">
+<h2>📜 สารบัญ / Table of Contents</h2>
+<ul>
+<li><a href="#p121">Patch 1.2.1–1.2.2 谪仙雷吟</a></li>
+<li><a href="#p13">Patch 1.3.x 浮生万象</a></li>
+<li><a href="#p20">Patch 2.0–2.1 玄机万变</a></li>
+<li><a href="#p22">Patch 2.2–2.3 九州飞光</a></li>
+<li><a href="#p30">Patch 3.0–3.1 沙与海之歌</a></li>
+<li><a href="#pvp">PVP Guild League — All Patches</a></li>
+<li><a href="#inner">Inner Skill Tier List</a></li>
+</ul>
+</nav>
+
+<!-- ==================== PATCH 1.2.1 ==================== -->
+<div class="sec" id="p121">
+<div class="sh" onclick="T(this)"><h2><span class="pt p1">1.2.1–1.2.2</span> Transcendent Thunder 谪仙雷吟 <span class="mode pve">PVE</span></h2><span class="a">▼</span></div>
+<div class="sb">
+<p><strong>Season 1 Early</strong> — Lv.69 cap. Boss DEF ~1,500. <strong>DEF Pen build (破防流) is king.</strong></p>
+
+<h3 class="ss">🎯 Universal PVE Thresholds (ค่ากลางทุกอาชีพ)</h3>
+<table>
+<tr><th>Stat</th><th>Minimum</th><th>Optimal</th><th>Notes</th></tr>
+<tr><td>Accuracy (命中)</td><td>850</td><td><strong>≥ 900</strong></td><td>Accessories/trait easily cover this</td></tr>
+<tr><td>Crit (会心)</td><td>1,200</td><td><strong>≥ 1,400</strong></td><td>With Crit pot + Eye of Mind → ~45% crit rate</td></tr>
+<tr><td>DEF Pen (破防)</td><td>1,500</td><td><strong>≥ 2,100</strong></td><td>Exceeding Boss DEF 1,500 → 0% mitigation!</td></tr>
+<tr><td>ATK (攻击)</td><td>2,500</td><td>3,000+</td><td>Incl. Restraint + base ATK</td></tr>
+<tr><td>Boss Restraint (首领克制)</td><td>300</td><td>450+</td><td>Adds directly to ATK pool</td></tr>
+<tr><td>Ele ATK (元素攻击)</td><td>300</td><td>400+</td><td>Relatively low value this patch</td></tr>
+</table>
+
+<h3 class="ss">🗡️ Per-Class PVE Build (1.2.x)</h3>
+<table>
+<tr><th>Class</th><th>Role</th><th>Stat Points</th><th>Acc</th><th>Crit</th><th>DEF Pen</th><th>ATK</th><th>Inner Cycle</th><th>Mega-Trait</th></tr>
+<tr><td class="left"><strong>Suimeng 碎梦</strong></td><td><span class="rt dps">DPS</span></td><td>STR / Agility</td><td>900</td><td>1,400</td><td>2,100+</td><td>3,000</td><td>3G3F</td><td>Danyan Ningbing</td></tr>
+<tr><td class="left"><strong>Shenxiang 神相</strong></td><td><span class="rt dps">DPS</span></td><td>Spirit / Agility</td><td>900</td><td>1,400</td><td>2,100+</td><td>3,000</td><td>3G3F</td><td>Suimeng</td></tr>
+<tr><td class="left"><strong>Xuehe 血河</strong></td><td><span class="rt dps">DPS</span></td><td>STR / Agility</td><td>900</td><td>1,400</td><td>2,100+</td><td>2,800</td><td>3G2W1F</td><td>Shenxiang</td></tr>
+<tr><td class="left"><strong>Longyin 龙吟</strong></td><td><span class="rt dps">DPS</span></td><td>Agility / Spirit</td><td>900</td><td>1,400</td><td>2,100+</td><td>2,800</td><td>3F3W</td><td>Jiuling</td></tr>
+<tr><td class="left"><strong>Jiuling 九灵</strong></td><td><span class="rt dps">DPS</span></td><td>Agility / Spirit</td><td>900</td><td>1,400</td><td>2,100+</td><td>2,800</td><td>3G3F</td><td>Shenxiang</td></tr>
+<tr><td class="left"><strong>Tieyi 铁衣 (DPS)</strong></td><td><span class="rt dps">DPS</span></td><td>Agility / STR</td><td>900</td><td>1,400</td><td>2,100+</td><td>2,800</td><td>3G3W</td><td>Danyan Ningbing</td></tr>
+<tr><td class="left"><strong>Tieyi 铁衣 (Tank)</strong></td><td><span class="rt tnk">Tank</span></td><td>Endurance / Constitution</td><td>—</td><td>—</td><td>—</td><td>—</td><td>3W3Earth</td><td>Blood Shield</td></tr>
+<tr><td class="left"><strong>Suwen 素问 (DPS)</strong></td><td><span class="rt dps">DPS</span></td><td>Agility / Spirit</td><td>900</td><td>1,400</td><td>2,100+</td><td>2,800</td><td>3G3W</td><td>Chongxu trait</td></tr>
+<tr><td class="left"><strong>Suwen 素问 (Heal)</strong></td><td><span class="rt hea">Heal</span></td><td>Spirit / Constitution</td><td>—</td><td>—</td><td>—</td><td>—</td><td>3G3W</td><td>Juling</td></tr>
+</table>
+
+<h3 class="ss">⚔️ Equipment Set (1.2.1)</h3>
+<table>
+<tr><th>Slot</th><th>Best Choice</th><th>Notes</th></tr>
+<tr><td>Weapon</td><td>75-Lv Bailian / Orange Weapon</td><td>Highest ATK base</td></tr>
+<tr><td>Armor</td><td>75-Lv Unique: Muye·Yougu罩袍 (Jiuling) / Relevant class unique</td><td>Highest priority unique slot</td></tr>
+<tr><td>Gloves</td><td>75-Lv Unique: Leiyin·Guqin Yinzhi</td><td>DEF Pen + Boss Restraint</td></tr>
+<tr><td>Necklace</td><td>75-Lv Unique: Muye·Duming Necklace</td><td>ATK + Ele ATK</td></tr>
+<tr><td>Ring</td><td>PVE: 75 Unique Liuzunshi·Yuxia Ring / PVP: Bailian Yujing Ring</td><td>Boss Restraint vs Block</td></tr>
+<tr><td>Accessories</td><td>75-Lv Yuehen 2-Set</td><td>+Crit% and +Accuracy</td></tr>
+<tr><td>Head/Belt/Bracer/Shoes</td><td>75-Lv Xuanye 4-Set (百炼)</td><td>+Boss Restraint%</td></tr>
+</table>
+
+<div class="tip"><strong>💡 สรุป 1.2.x:</strong> เน้น DEF Pen (破防) ให้เกิน Boss DEF (~1,500) จะกลายเป็น 0% mitigation → ดาเมจพุ่งสูงมาก ลอง stack ATK/Restraint เสริม</div>
+</div></div>
+
+<!-- ==================== PATCH 1.3.x ==================== -->
+<div class="sec" id="p13">
+<div class="sh" onclick="T(this)"><h2><span class="pt p13">1.3.x</span> Myriad Illusions 浮生万象 <span class="mode pve">PVE</span></h2><span class="a">▼</span></div>
+<div class="sb">
+<p><strong>Season 1 Late</strong> — Boss DEF leapt to ~5,500. <strong>Element Flow (元素流) takes over.</strong> DEF Pen "fell from the altar".</p>
+
+<h3 class="ss">🎯 Universal PVE Thresholds</h3>
+<table>
+<tr><th>Stat</th><th>Minimum</th><th>Optimal</th><th>Notes</th></tr>
+<tr><td>Accuracy</td><td>1,100</td><td><strong>≥ 1,300</strong></td><td>Must hit; missing = 0 damage</td></tr>
+<tr><td>Crit</td><td>1,800</td><td><strong>≥ 2,100</strong></td><td>With Crit pot + Eye of Mind in raid</td></tr>
+<tr><td>DEF Pen</td><td>1,500</td><td>~2,000</td><td>No longer #1; diminishing vs 5,500 Boss DEF</td></tr>
+<tr><td>Ele ATK (全元素)</td><td>600</td><td><strong>≥ 900</strong></td><td><span class="tier t0">T1!</span> Now rivals DEF Pen per slot</td></tr>
+<tr><td>ATK + Restraint</td><td>5,500</td><td>6,500+</td><td>Boss Resist = 1,500, eats into your ATK pool</td></tr>
+</table>
+
+<h3 class="ss">🗡️ Per-Class PVE Build (1.3.x)</h3>
+<table>
+<tr><th>Class</th><th>Role</th><th>Stats</th><th>Acc</th><th>Crit</th><th>Ele ATK</th><th>DEF Pen</th><th>Inner Cycle</th><th>Equipment Path</th></tr>
+<tr><td class="left"><strong>Suimeng</strong></td><td><span class="rt dps">DPS</span></td><td>STR/Agi (240+Agi)</td><td>1,300</td><td>2,100</td><td>900+</td><td>~1,500</td><td>3G3F</td><td>3-Unique+2-Set</td></tr>
+<tr><td class="left"><strong>Shenxiang</strong></td><td><span class="rt dps">DPS</span></td><td>Spirit/Agi</td><td>1,300</td><td>2,100</td><td>900+</td><td>~1,500</td><td>3G3F</td><td>4-Set+Xinmo</td></tr>
+<tr><td class="left"><strong>Xuehe</strong></td><td><span class="rt dps">DPS</span></td><td>Agi/STR (240+Agi)</td><td>1,300</td><td>2,100</td><td>900+</td><td>~1,500</td><td>3G2W1F</td><td>4-Set+Xinmo</td></tr>
+<tr><td class="left"><strong>Longyin</strong></td><td><span class="rt dps">DPS</span></td><td>Agi/Spirit</td><td>1,300</td><td>2,000</td><td>800+</td><td>~2,000</td><td>3F3W</td><td>4-Set+Xinmo (raid) / 3-Unique (dummy)</td></tr>
+<tr><td class="left"><strong>Jiuling</strong></td><td><span class="rt dps">DPS</span></td><td>Agi/Spirit</td><td>1,300</td><td>2,100</td><td>900+</td><td>~1,500</td><td>3G3F</td><td>4-Set / 3-Unique</td></tr>
+<tr><td class="left"><strong>Tieyi DPS</strong></td><td><span class="rt dps">DPS</span></td><td>Agi/STR</td><td>1,300</td><td>2,000</td><td>800+</td><td>~1,500</td><td>3G3W</td><td>3-Unique+2-Set</td></tr>
+<tr><td class="left"><strong>Tieyi Tank</strong></td><td><span class="rt tnk">Tank</span></td><td>End/Con</td><td>—</td><td>—</td><td>—</td><td>—</td><td>3W3Earth</td><td>Full DEF set</td></tr>
+<tr><td class="left"><strong>Suwen DPS</strong></td><td><span class="rt dps">DPS</span></td><td>Agi/Spirit</td><td>1,300</td><td>2,000</td><td>900+</td><td>~1,500</td><td>3G3W</td><td>3-Unique+Liu Canghai</td></tr>
+<tr><td class="left"><strong>Suwen Heal</strong></td><td><span class="rt hea">Heal</span></td><td>Spirit/Con</td><td>—</td><td>—</td><td>—</td><td>—</td><td>3G3W</td><td>Heitou+4-Set</td></tr>
+</table>
+
+<h3 class="ss">📊 Substat Priority Shift (1.2 → 1.3)</h3>
+<table>
+<tr><th>Tier</th><th>Patch 1.2.x</th><th>Patch 1.3.x</th></tr>
+<tr><td><span class="tier t0">T0</span></td><td>DEF Pen (อันดับ 1 ชัดเจน)</td><td>—</td></tr>
+<tr><td><span class="tier t1">T1</span></td><td>STR/Spirit, ATK</td><td>Crit, All-Ele ATK, Agility, Accuracy</td></tr>
+<tr><td><span class="tier t15">T1.5</span></td><td>Ele ATK, Crit, Accuracy</td><td>DEF Pen, Single-Ele ATK</td></tr>
+<tr><td><span class="tier t2">T2</span></td><td>Boss Restraint, Min/Max ATK</td><td>STR/Spirit, ATK</td></tr>
+<tr><td><span class="tier t3">T3</span></td><td>Agility</td><td>Boss Restraint, Min/Max ATK</td></tr>
+</table>
+</div></div>
+
+<!-- ==================== PATCH 2.0-2.1 ==================== -->
+<div class="sec" id="p20">
+<div class="sh" onclick="T(this)"><h2><span class="pt p2">2.0–2.1</span> Xuanji Myriad 玄机万变 <span class="mode pve">PVE</span></h2><span class="a">▼</span></div>
+<div class="sb">
+<p><strong>🔄 SEASON 2 RESET!</strong> Lv.79 cap. Xuanji class added. All gear/jade/enhance reset.</p>
+
+<h3 class="ss">🎯 Universal PVE Thresholds (Season 2)</h3>
+<table>
+<tr><th>Stat</th><th>Early Season</th><th>Mid Season</th><th>Late Season (Hero)</th></tr>
+<tr><td>Accuracy</td><td>2,000</td><td>2,400</td><td><strong>2,800</strong></td></tr>
+<tr><td>Crit</td><td>2,800</td><td>3,200</td><td><strong>3,700+</strong></td></tr>
+<tr><td>ATK</td><td>8,000</td><td>12,000</td><td><strong>16,000+</strong></td></tr>
+<tr><td>DEF Pen</td><td>6,000</td><td>9,000</td><td><strong>12,500+</strong></td></tr>
+<tr><td>Ele ATK</td><td>2,000</td><td>3,500</td><td><strong>5,000+</strong></td></tr>
+<tr><td>Boss Restraint</td><td>3,000</td><td>5,500</td><td><strong>8,300+</strong></td></tr>
+</table>
+
+<h3 class="ss">🗡️ Per-Class PVE (Season 2 Mid-Late)</h3>
+<table>
+<tr><th>Class</th><th>Stats</th><th>Acc</th><th>Crit</th><th>ATK</th><th>DEF Pen</th><th>Ele ATK</th><th>Build Flow</th></tr>
+<tr><td class="left"><strong>Suimeng</strong></td><td>STR/Agi</td><td>2,800</td><td>3,700</td><td>16K</td><td>12.5K</td><td>5K</td><td>Ele flow</td></tr>
+<tr><td class="left"><strong>Shenxiang</strong></td><td>Spirit/Agi</td><td>2,800</td><td>3,700</td><td>16K</td><td>12.5K</td><td>5K</td><td>Ele flow</td></tr>
+<tr><td class="left"><strong>Xuehe</strong></td><td>STR/Agi</td><td>2,800</td><td>3,700</td><td>16K</td><td>12.5K</td><td>5K</td><td>Ele/ATK flow</td></tr>
+<tr><td class="left"><strong>Longyin</strong></td><td>Agi/Spirit</td><td>2,600</td><td>3,500</td><td>15K</td><td>13K</td><td>4.5K</td><td>DEF Pen/ATK hybrid</td></tr>
+<tr><td class="left"><strong>Jiuling</strong></td><td>Agi/Spirit</td><td>2,800</td><td>3,700</td><td>15K</td><td>12K</td><td>5K</td><td>Ele flow</td></tr>
+<tr><td class="left"><strong>Xuanji 玄机</strong></td><td>Spirit/Agi</td><td>2,800</td><td>3,700</td><td>16K</td><td>12K</td><td>5.5K</td><td>Ele flow (Wind)</td></tr>
+<tr><td class="left"><strong>Tieyi DPS</strong></td><td>Agi/STR</td><td>2,600</td><td>3,500</td><td>15K</td><td>12K</td><td>4.5K</td><td>ATK flow</td></tr>
+<tr><td class="left"><strong>Tieyi Tank</strong></td><td>End/Con</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>DEF+Earth cycle</td></tr>
+<tr><td class="left"><strong>Suwen DPS</strong></td><td>Agi/Spirit</td><td>2,800</td><td>3,700</td><td>15K</td><td>12K</td><td>5K</td><td>Ele flow</td></tr>
+<tr><td class="left"><strong>Suwen Heal</strong></td><td>Spirit/Con</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>ATK→Heal cycle</td></tr>
+</table>
+
+<h3 class="ss">📐 New PVP Formulas (Lv.79)</h3>
+<div class="fb"><span class="l">🎯 HIT RATE (PVP)</span>Hit Rate = (2.3804 × X + 5744) / (X + 6046)    where X = Accuracy − Block
+→ Remaining Acc ≥ 219 for reliable burst</div>
+<div class="fb"><span class="l">⚡ CRIT RATE (PVP)</span>Crit Rate = (1.1445 × X + 80) / (X + 1602.5)    where X = Crit − Crit Resist
+→ Sweet spot: X ≈ 1,000</div>
+<div class="fb"><span class="l">🛡️ DEF DAMAGE REDUCTION (PVP)</span>DEF DR = Remaining DEF / (Remaining DEF + 10,743)
+Ele DR = Remaining Ele Resist / (Remaining Ele Resist + 2,016)</div>
+</div></div>
+
+<!-- ==================== PATCH 2.2 ==================== -->
+<div class="sec" id="p22">
+<div class="sh" onclick="T(this)"><h2><span class="pt p22">2.2–2.3</span> Nine Provinces 九州飞光 <span class="mode pve">PVE</span></h2><span class="a">▼</span></div>
+<div class="sb">
+<p><strong>Season 2 Late</strong> — Hero Boss 6 prep. Technique Restraint added. Pet Breeding system.</p>
+
+<h3 class="ss">🎯 Universal PVE Thresholds (2.2 Late)</h3>
+<table>
+<tr><th>Stat</th><th>Minimum</th><th>Optimal</th><th>Cap / Warning</th></tr>
+<tr><td>Full Accuracy</td><td>4,900</td><td><strong>5,100</strong></td><td>⚠️ Do NOT exceed 5,110 (wasted)</td></tr>
+<tr><td>In-Dungeon Accuracy</td><td>4,500</td><td><strong>4,900</strong></td><td>With Xuanji buff +215</td></tr>
+<tr><td>Crit</td><td>6,500</td><td><strong>7,200–7,500</strong></td><td>Higher = better (no soft cap issue)</td></tr>
+<tr><td>ATK</td><td>28,000</td><td><strong>35,000+</strong></td><td>Include Restraint pool</td></tr>
+<tr><td>DEF Pen</td><td>18,000</td><td><strong>22,000+</strong></td><td>Stable scaling, not dominant</td></tr>
+<tr><td>Ele ATK</td><td>8,000</td><td><strong>12,000+</strong></td><td>Ele Ignore ≥ 4,300 needed</td></tr>
+</table>
+
+<h3 class="ss">🗡️ Per-Class PVE Build (2.2–2.3 Late Season)</h3>
+<table>
+<tr><th>Class</th><th>Stats</th><th>Full Acc</th><th>Dung. Acc</th><th>Crit</th><th>Ele Ignore</th><th>Build Flow</th><th>Equipment</th></tr>
+<tr><td class="left"><strong>Xuehe</strong></td><td>STR/Agi</td><td>5,100</td><td>4,900</td><td>7,500</td><td>—</td><td>ATK+Restraint</td><td>7-Unique endgame</td></tr>
+<tr><td class="left"><strong>Xuanji</strong></td><td>Agi/STR</td><td>≤5,110</td><td>4,900</td><td>7,500</td><td>4,389</td><td>Ele flow</td><td>7-Unique</td></tr>
+<tr><td class="left"><strong>Longyin</strong></td><td>Spirit/Agi</td><td>4,910</td><td>4,700</td><td>7,200</td><td>—</td><td>ATK+Restraint</td><td>7-Unique</td></tr>
+<tr><td class="left"><strong>Shenxiang</strong></td><td>Spirit or Agi</td><td>≤5,110</td><td>4,800</td><td>7,500</td><td>4,300</td><td>Ele flow</td><td>7-Unique</td></tr>
+<tr><td class="left"><strong>Suimeng</strong></td><td>Agi/STR</td><td>≤5,110</td><td>4,896</td><td>7,500</td><td>4,469</td><td>Ele flow</td><td>7-Unique</td></tr>
+<tr><td class="left"><strong>Jiuling</strong></td><td>Spirit/Agi</td><td>5,111</td><td>4,900</td><td>7,200</td><td>—</td><td>ATK+Restraint/Ele</td><td>7-Unique</td></tr>
+<tr><td class="left"><strong>Tianwen (素问DPS)</strong></td><td>Agi/Spirit</td><td>—</td><td>4,896</td><td>7,500</td><td>4,389</td><td>Ele flow</td><td>7-Unique</td></tr>
+<tr><td class="left"><strong>Suxin (素问Heal)</strong></td><td>Spirit/Con</td><td>—</td><td>—</td><td>—</td><td>—</td><td>3G3W heal</td><td>Heal-unique set</td></tr>
+<tr><td class="left"><strong>Tieyi</strong></td><td>STR/Agi</td><td>5,110</td><td>4,900</td><td>7,200</td><td>—</td><td>7-Unique</td><td>7-Unique</td></tr>
+</table>
+
+<div class="tip"><strong>💡 สรุป 2.2:</strong> Accuracy มี HARD CAP ที่ ~5,110 (เกินแล้วเสียเปล่า!) ดังนั้นอย่าลง Accuracy เกิน → แล้วเท Crit ให้ได้ 7,200+ จากนั้นค่อย stack Ele/ATK ตามอาชีพ</div>
+</div></div>
+
+<!-- ==================== PATCH 3.0 ==================== -->
+<div class="sec" id="p30">
+<div class="sh" onclick="T(this)"><h2><span class="pt p3">3.0–3.1</span> Song of Sand & Sea 沙与海之歌 <span class="mode pve">PVE</span></h2><span class="a">▼</span></div>
+<div class="sb">
+<p><strong>🔄 SEASON 3 RESET!</strong> Lv.89. Canlan (沧澜/Water) class added. Full reset again.</p>
+
+<h3 class="ss">🎯 Early Season 3 PVE Thresholds</h3>
+<table>
+<tr><th>Stat</th><th>Week 1</th><th>Week 4</th><th>Mid Season (est.)</th></tr>
+<tr><td>Accuracy</td><td>3,500</td><td>5,500</td><td>8,000+</td></tr>
+<tr><td>Crit</td><td>4,000</td><td>6,500</td><td>9,000+</td></tr>
+<tr><td>ATK</td><td>12,000</td><td>25,000</td><td>40,000+</td></tr>
+<tr><td>DEF Pen</td><td>8,000</td><td>16,000</td><td>25,000+</td></tr>
+<tr><td>Ele ATK</td><td>3,000</td><td>8,000</td><td>15,000+</td></tr>
+<tr><td>Gear Score</td><td>≥ 127</td><td>≥ 133</td><td>≥ 137+</td></tr>
+</table>
+
+<h3 class="ss">🗡️ Per-Class PVE Build (3.0 Early-Mid)</h3>
+<table>
+<tr><th>Class</th><th>Role</th><th>Stats</th><th>Priority Order</th><th>Inner Cycle</th><th>Notes</th></tr>
+<tr><td class="left"><strong>Suimeng</strong></td><td><span class="rt dps">DPS</span></td><td>STR/Agi</td><td>Acc threshold → Crit threshold → Ele ATK → ATK</td><td>3G3F (new pool)</td><td>Ele flow; burst still dominant</td></tr>
+<tr><td class="left"><strong>Shenxiang</strong></td><td><span class="rt dps">DPS</span></td><td>Spirit/Agi</td><td>Acc → Crit → Ele → ATK</td><td>3G3F</td><td>万剑诀 / 法天 still strong</td></tr>
+<tr><td class="left"><strong>Xuehe</strong></td><td><span class="rt dps">DPS</span></td><td>STR/Agi</td><td>Acc → Crit → ATK → Ele</td><td>3G3F</td><td>ATK flow slightly better early</td></tr>
+<tr><td class="left"><strong>Longyin</strong></td><td><span class="rt dps">DPS</span></td><td>Agi/Spirit</td><td>Acc → Crit → DEF Pen → ATK</td><td>3F3W</td><td>DEF Pen returns early season!</td></tr>
+<tr><td class="left"><strong>Jiuling</strong></td><td><span class="rt dps">DPS</span></td><td>Agi/Spirit</td><td>Acc → Crit → ATK → Ele</td><td>3G3F</td><td>Burst > 50%, Duanjinge mandatory</td></tr>
+<tr><td class="left"><strong>Xuanji</strong></td><td><span class="rt dps">DPS</span></td><td>Spirit/Agi</td><td>Acc → Crit → Ele → ATK</td><td>3G3F (Wind)</td><td>Sustained DPS, best AoE class</td></tr>
+<tr><td class="left"><strong>Canlan 沧澜</strong></td><td><span class="rt dps">DPS</span></td><td>STR/Agi (TBD)</td><td>Acc → Crit → ATK → Ele</td><td>3Water3G (TBD)</td><td>NEW! Dual-stance Water DPS</td></tr>
+<tr><td class="left"><strong>Tieyi DPS</strong></td><td><span class="rt dps">DPS</span></td><td>Agi/STR</td><td>Acc → Crit → ATK → Ele</td><td>3G3W</td><td>Frontline hybrid still viable</td></tr>
+<tr><td class="left"><strong>Tieyi Tank</strong></td><td><span class="rt tnk">Tank</span></td><td>End/Con</td><td>DEF → Qi Shield → Block → HP</td><td>3W3Earth</td><td>Tanking simplified in S3</td></tr>
+<tr><td class="left"><strong>Suwen DPS</strong></td><td><span class="rt dps">DPS</span></td><td>Agi/Spirit</td><td>Acc → Crit → Ele → ATK</td><td>3G3W</td><td>Single-target dominance</td></tr>
+<tr><td class="left"><strong>Suwen Heal</strong></td><td><span class="rt hea">Heal</span></td><td>Spirit/Con</td><td>Spirit → ATK → HP → Crit</td><td>3G3W</td><td>3.0 added new healing inner skills</td></tr>
+</table>
+</div></div>
+
+<!-- ==================== PVP ALL PATCHES ==================== -->
+<div class="sec" id="pvp">
+<div class="sh" onclick="T(this)"><h2>⚔️ PVP Guild League (帮会联赛) — All Patches <span class="mode pvp">PVP</span></h2><span class="a">▼</span></div>
+<div class="sb">
+
+<h4 class="sub">Season 1 (1.2–1.3) PVP Panel Targets — DPS Classes</h4>
+<table>
+<tr><th>Stat</th><th>DPS Target</th><th>Tank/Healer Target</th><th>Notes</th></tr>
+<tr><td>ATK</td><td>4,000–5,000</td><td>2,500–3,500</td><td>Higher = more burst</td></tr>
+<tr><td>DEF Pen</td><td>1,500–2,300</td><td>800–1,200</td><td>Still king in S1 PVP</td></tr>
+<tr><td>Crit</td><td>1,500–2,000</td><td>1,000–1,500</td><td>With pot → ~40% crit rate</td></tr>
+<tr><td>Crit DMG</td><td>≥ 175%</td><td>—</td><td>Default 150%, craft adds 25%+</td></tr>
+<tr><td>Accuracy</td><td>900–1,200</td><td>—</td><td>Need > opponent Block</td></tr>
+<tr><td>DEF</td><td>3,000–4,000</td><td>4,500–6,000</td><td>Remaining DEF ≥ 3,000 for tank</td></tr>
+<tr><td>Qi Shield</td><td>800–1,200</td><td>2,000–3,000</td><td>Directly subtracts from enemy ATK</td></tr>
+<tr><td>Shield Break</td><td>350–450</td><td>—</td><td>Extreme: 900+ for Suimeng</td></tr>
+<tr><td>Crit Resist</td><td>1,500–2,000</td><td>2,000–2,500</td><td>Reduces opponent's crit rate</td></tr>
+<tr><td>Ele Resist</td><td>800–1,200</td><td>1,500–2,000</td><td>Reduces Ele dmg</td></tr>
+<tr><td>Block</td><td>—</td><td>2,500–3,500</td><td>Tank stat</td></tr>
+</table>
+
+<h4 class="sub">Season 2 (2.0–2.3) PVP Panel Targets — DPS Classes</h4>
+<table>
+<tr><th>Stat</th><th>DPS</th><th>Front-DPS</th><th>Tank</th><th>Healer</th></tr>
+<tr><td>ATK</td><td>16,000</td><td>14,000</td><td>—</td><td>12,000</td></tr>
+<tr><td>DEF Pen</td><td>12,500</td><td>11,000</td><td>—</td><td>—</td></tr>
+<tr><td>Ele ATK</td><td>5,000</td><td>4,000</td><td>—</td><td>—</td></tr>
+<tr><td>Ele Ignore</td><td>1,600</td><td>1,200</td><td>—</td><td>—</td></tr>
+<tr><td>Crit</td><td>6,000</td><td>5,000</td><td>—</td><td>—</td></tr>
+<tr><td>Crit DMG</td><td>190%</td><td>180%</td><td>—</td><td>—</td></tr>
+<tr><td>Shield Break</td><td>350</td><td>250</td><td>—</td><td>—</td></tr>
+<tr><td>Faction Restraint</td><td>8,300</td><td>7,000</td><td>—</td><td>—</td></tr>
+<tr><td>DEF</td><td>13,000</td><td>15,000</td><td>18,000+</td><td>14,000</td></tr>
+<tr><td>Qi Shield</td><td>2,500</td><td>3,500</td><td>5,000+</td><td>3,000</td></tr>
+<tr><td>Ele Resist</td><td>3,700</td><td>4,500</td><td>6,000+</td><td>4,500</td></tr>
+<tr><td>Faction Resist</td><td>4,600</td><td>5,500</td><td>7,000+</td><td>5,000</td></tr>
+<tr><td>Crit Resist</td><td>3,150</td><td>4,000</td><td>5,000+</td><td>4,000</td></tr>
+<tr><td>Block</td><td>—</td><td>5,000</td><td>8,000+</td><td>—</td></tr>
+</table>
+
+<h4 class="sub">Season 2 PVP Substat Tier (v2.1.1)</h4>
+<table>
+<tr><th>Tier</th><th>Attribute</th></tr>
+<tr><td><span class="tier t0">S</span></td><td>Shield Break (破盾), STR/Spirit, ATK, All-Ele ATK</td></tr>
+<tr><td><span class="tier t1">S−</span></td><td>DEF Pen, Ele·Yaowang, Min/Max ATK, Crit</td></tr>
+<tr><td><span class="tier t15">A</span></td><td>Constitution, Agility, Endurance (↑ if Mega-Trait matches), Accuracy, DEF, Inner/Outer Qi Shield</td></tr>
+<tr><td><span class="tier t2">A−</span></td><td>Inner DEF, Outer DEF, All-Ele Resist</td></tr>
+<tr><td><span class="tier t15">B</span></td><td>Anti-Inner Crit, Anti-Outer Crit</td></tr>
+<tr><td><span class="tier t3">C</span></td><td>Block, Inner Block, Outer Block</td></tr>
+<tr><td><span class="tier t3">D</span></td><td>Faction Restraint (too low per point), Resist</td></tr>
+</table>
+
+<h4 class="sub">Season 3 (3.0–3.1) PVP Panel Targets (Guild League)</h4>
+<table>
+<tr><th>Stat</th><th>DPS</th><th>Front-DPS</th><th>Tank</th><th>Healer</th></tr>
+<tr><td>Crit</td><td><strong>≥ 11,000</strong></td><td>9,000</td><td>—</td><td>—</td></tr>
+<tr><td>Crit Resist</td><td>8,000</td><td>9,000</td><td>10,000+</td><td>9,000</td></tr>
+<tr><td>ATK</td><td>40,000+</td><td>35,000</td><td>—</td><td>30,000</td></tr>
+<tr><td>DEF Pen</td><td>25,000+</td><td>22,000</td><td>—</td><td>—</td></tr>
+<tr><td>Ele ATK</td><td>15,000+</td><td>12,000</td><td>—</td><td>—</td></tr>
+<tr><td>Shield Break</td><td>800+</td><td>500</td><td>—</td><td>—</td></tr>
+<tr><td>Faction Restraint</td><td>20,000+</td><td>17,000</td><td>—</td><td>—</td></tr>
+<tr><td>DEF</td><td>25,000</td><td>30,000</td><td>40,000+</td><td>28,000</td></tr>
+<tr><td>Qi Shield</td><td>5,000</td><td>7,000</td><td>10,000+</td><td>6,000</td></tr>
+<tr><td>Ele Resist</td><td>8,000</td><td>10,000</td><td>14,000+</td><td>10,000</td></tr>
+<tr><td>Faction Resist</td><td>10,000</td><td>13,000</td><td>16,000+</td><td>12,000</td></tr>
+<tr><td>Gear Score</td><td colspan="4"><strong>≥ 137+ mandatory (NO old season gear!)</strong></td></tr>
+</table>
+
+<h4 class="sub">S3 PVP — After Crit ≥ 11,000 → Priority Order</h4>
+<div class="fb"><span class="l">🏆 DPS PRIORITY (after 11K Crit)</span>
+1. ATK (攻击)
+2. Faction Restraint (流派克制)
+3. Shield Break (破盾)
+4. Crit DMG (会心伤害)
+5. DEF Pen (破防)</div>
+
+<div class="fb"><span class="l">🛡️ TANK/HEALER PRIORITY (after 10K Crit Resist)</span>
+1. DEF (防御)
+2. Qi Shield (气盾)
+3. Faction Resist (流派抵御)
+4. Ele Resist (元素抗性)
+5. HP (气血)</div>
+
+<h4 class="sub">S3 PVP Crafting (打造) Priority</h4>
+<table>
+<tr><th>Slot</th><th>Best Craft Name</th><th>Alt Choice</th></tr>
+<tr><td>Weapon</td><td>Shouling·Zhaozui Sheyuan (首领·招罪摄远)</td><td>Cengluan Yunli (层峦云砺)</td></tr>
+<tr><td>Shoes</td><td>Jiqie Songshang (极切松上) / Qinglei Jianghua (清雷降华)</td><td>Jiuyao Lieyu (九曜烈御)</td></tr>
+<tr><td>Necklace</td><td>Own class high-burst skill craft</td><td>Varies by class</td></tr>
+<tr><td>Bracer</td><td>Poqiong Diezhang (破穹叠嶂)</td><td>Dieying Changlu (叠影长露)</td></tr>
+<tr><td>Armor</td><td>Zhuchao Ningkai (竹巢凝铠)</td><td>—</td></tr>
+<tr><td>Belt</td><td>Red Shengyu Sulun (盛御素纶)</td><td>Naqi Guicang (纳气归藏)</td></tr>
+</table>
+
+<h4 class="sub">S3 PVP Inner Skills (3.1.1 สำหรับ League/Guild War)</h4>
+<table>
+<tr><th>Priority</th><th>Inner Skill Name</th><th>Effect</th></tr>
+<tr><td><span class="tier t0">Must</span></td><td>Poxiao Cuixing (破晓催星)</td><td>Highest PVP burst multiplier</td></tr>
+<tr><td><span class="tier t0">Must</span></td><td>Fanling Jue (返灵诀)</td><td>Self-heal + DMG boost on kill</td></tr>
+<tr><td><span class="tier t1">Core</span></td><td>Fengxu (风墟)</td><td>Movement speed + evasion</td></tr>
+<tr><td><span class="tier t1">Core</span></td><td>Class Skill-Tag Inner Skill</td><td>+12% to your main skill category</td></tr>
+<tr><td><span class="tier t15">Good</span></td><td>Poji (破寂)</td><td>Ignore shield %</td></tr>
+<tr><td><span class="tier t15">Good</span></td><td>Zhuofeng Jingyu (斫锋镜羽)</td><td>Crit DMG boost</td></tr>
+<tr><td><span class="tier t2">Flex</span></td><td>Guanshan Yue (关山月)</td><td>Team-wide buff</td></tr>
+<tr><td><span class="tier t2">Flex</span></td><td>Rongjia (融甲)</td><td>Penetration boost</td></tr>
+<tr><td><span class="tier t3">Backup</span></td><td>Kunwu / Riyue / Dangjiang</td><td>Filler if missing above</td></tr>
+</table>
+</div></div>
+
+<!-- ==================== INNER SKILL ==================== -->
+<div class="sec" id="inner">
+<div class="sh" onclick="T(this)"><h2>📖 Inner Skill (内功) PVE Tier — Season 2 Reference</h2><span class="a">▼</span></div>
+<div class="sb">
+<table>
+<tr><th>Tier</th><th>Name</th><th>Element</th><th>DPS Gain</th><th>w/ Lingwen</th><th>Best For</th></tr>
+<tr><td><span class="tier t0">T0</span></td><td class="left"><strong>Linfeng Jueren 凛风绝刃</strong></td><td>G/W★</td><td>7–10%</td><td>10–13%</td><td>All DPS</td></tr>
+<tr><td><span class="tier t0">T0</span></td><td class="left"><strong>Mingyou 明佑</strong></td><td>F/W</td><td>8.5%</td><td>10.5%</td><td>All DPS (slot first)</td></tr>
+<tr><td><span class="tier t1">T1</span></td><td class="left"><strong>Hanjinque 撼金阙</strong></td><td>G</td><td>7%</td><td>8.8%</td><td>All (needs Crit ≥ 3K)</td></tr>
+<tr><td><span class="tier t1">T1</span></td><td class="left"><strong>Tongwei 通微</strong></td><td>W</td><td>6.5%</td><td>8%</td><td>All</td></tr>
+<tr><td><span class="tier t1">T1</span></td><td class="left"><strong>Pofu 破釜</strong></td><td>G</td><td>6.2%</td><td>7.7%</td><td>High-ATK classes</td></tr>
+<tr><td><span class="tier t15">T1.5</span></td><td class="left"><strong>Riyue 日月两仪</strong></td><td>F/E★</td><td>5%</td><td>7.5%</td><td>All (stable uptime)</td></tr>
+<tr><td><span class="tier t15">T1.5</span></td><td class="left"><strong>Kunwu 昆吾断玉</strong></td><td>G/F★</td><td>4.5%</td><td>7%</td><td>Crit ≥ 3800</td></tr>
+<tr><td><span class="tier t15">T1.5</span></td><td class="left"><strong>Liaoye 燎野</strong></td><td>F</td><td>4.5%</td><td>5.5%</td><td>Long fights only</td></tr>
+<tr><td><span class="tier t2">T2</span></td><td class="left"><strong>Pochongyun 破重云</strong></td><td>W</td><td>4.5%</td><td>5.3%</td><td>All (Restraint %)</td></tr>
+<tr><td><span class="tier t2">T2</span></td><td class="left"><strong>Xiaogange 销干戈</strong></td><td>G</td><td>4.3%</td><td>5.3%</td><td>AoE scenarios (7%!)</td></tr>
+<tr><td><span class="tier t2">T2</span></td><td class="left"><strong>Duanjinge 断金戈</strong></td><td>G</td><td>6% (if burst>50%)</td><td>—</td><td>Jiuling, Xuanji, Shenxiang</td></tr>
+<tr><td><span class="tier t2">T2</span></td><td class="left"><strong>Chongxu 冲虚</strong></td><td>W</td><td>5% (if single>40%)</td><td>—</td><td>Tianwen (Suwen DPS)</td></tr>
+</table>
+
+<div class="tip"><strong>💡 เลือก Inner Skill ยังไง:</strong><br>
+1. <strong>Linfeng + Mingyou</strong> = ใส่ก่อนเสมอ (T0 ไม่สนเรื่อง词条)<br>
+2. เติมด้วย <strong>Hanjinque / Pofu / Tongwei</strong> ให้ตรง Zhou Tian cycle<br>
+3. <strong>Duanjinge</strong> จำเป็นถ้า Burst Skill > 50% ของ Total DMG<br>
+4. <strong>词条ดี 2 บรรทัด ≈ +3% DPS ≈ 1 full inner skill trait</strong> → 词条สำคัญกว่า trait!</div>
+</div></div>
+
+</div>
+
+<footer class="footer">
+<p>Data: Tieba @星语困 / B站 @白宝正不正, @—风何往—, @清纯男大阿娟 / NGA / 17173 / Bahamut / nshmcalc / Fandom Wiki</p>
+<p>April 2026 — Season 3 data still evolving. Formulas adjusted per patch.</p>
+</footer>
+
+<script>function T(h){h.classList.toggle('on');h.nextElementSibling.classList.toggle('show')}</script>
+</body>
+</html>
