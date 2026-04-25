@@ -29,378 +29,396 @@ h3.ss{color:var(--gl);margin:14px 0 6px;font-size:1rem}h4.sub{color:var(--g);mar
 .cc h3{font-size:1rem;margin-bottom:6px;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
 .rt{font-size:.68rem;padding:2px 6px;border-radius:3px;font-weight:700}
 .dps{background:var(--r);color:#fff}.tnk{background:var(--b);color:#fff}.hea{background:var(--gn);color:#000}.sup{background:var(--p);color:#fff}
-.sl{font-size:.82rem;padding:1px 0;display:flex;justify-content:space-between;gap:4px}.sl .lb{color:var(--dm);white-space:nowrap}.sl .vl{color:var(--gl);font-weight:700;text-align:right}
-.cc hr{border:none;border-top:1px solid var(--bdr);margin:6px 0}.cc .nt{font-size:.76rem;color:var(--dm);margin-top:4px;line-height:1.4}
-.tier{display:inline-block;padding:1px 7px;border-radius:3px;font-weight:700;font-size:.72rem;min-width:24px;text-align:center}
-.t0{background:#e74c3c;color:#fff}.t1{background:#e67e22;color:#fff}.t15{background:#d4a843;color:#000}.t2{background:#3498db;color:#fff}.t3{background:#666;color:#ccc}
-.footer{text-align:center;padding:24px 16px;color:var(--dm);font-size:.74rem;border-top:1px solid var(--bdr);margin-top:30px}
-@media(max-width:700px){.hero h1{font-size:1.5rem}.toc ul{column-count:1}.cg{grid-template-columns:1fr}.sb{padding:10px}table{font-size:.75rem;display:block;overflow-x:auto;white-space:nowrap}td,th{padding:4px 3px;white-space:nowrap}}
-td.left{text-align:left}
+.sl{font-size:.82rem;padding:1px 0;display:flex;gap:4px;flex-wrap:wrap}.sl strong{color:var(--gl);font-size:.75rem}
+.note{font-size:.8rem;color:var(--dm);margin-top:6px}
+footer{text-align:center;padding:20px;color:var(--dm);font-size:.75rem;border-top:1px solid var(--bdr);margin-top:30px}
+td.left,th.left{text-align:left}
+@media(max-width:600px){.hero h1{font-size:1.5rem}.toc ul{column-count:1}table{font-size:.72rem}th,td{padding:4px 3px}.cg{grid-template-columns:1fr}}
+
+/* ===== LANGUAGE TOGGLE ===== */
+body.en .th{display:none}
+body.th .en{display:none}
+.lang-toggle{position:fixed;top:12px;right:12px;z-index:9999;display:flex;gap:0;border-radius:20px;overflow:hidden;border:1px solid var(--gd);background:var(--c2);box-shadow:0 2px 12px rgba(0,0,0,.5)}
+.lang-toggle button{background:transparent;color:var(--gl);border:none;padding:6px 16px;font-size:.82rem;cursor:pointer;font-weight:700;transition:all .2s}
+.lang-toggle button.active{background:var(--gd);color:#000}
 </style>
 </head>
-<body>
+<body class="en">
 
-<header class="hero">
-<h1>⚔️ Justice Online ⚔️</h1>
-<p class="s">逆水寒 — Full Build Guide: Every Class × Every Patch × PVE + PVP</p>
-<span class="b">Updated: April 2026 | Patches 1.2.1 → 3.1.x | PVE + PVP (Guild League)</span>
-</header>
+<!-- Language Toggle -->
+<div class="lang-toggle">
+<button id="btn-en" class="active" onclick="switchLang('en')">EN</button>
+<button id="btn-th" onclick="switchLang('th')">TH</button>
+</div>
+
+<div class="hero">
+<h1>⚔️ Justice Online</h1>
+<p class="s"><span class="en">Full Build Guide — Sorted by Patch (PVE + PVP)</span><span class="th">คู่มือบิลด์ฉบับเต็ม — เรียงตามแพทช์ (PVE + PVP)</span></p>
+<span class="b"><span class="en">Last updated: Patch 3.1 Song of Sand &amp; Sea (沙与海之歌)</span><span class="th">อัปเดตล่าสุด: แพทช์ 3.1 เพลงทรายและทะเล (沙与海之歌)</span></span>
+</div>
 
 <div class="w">
-
-<nav class="toc">
-<h2>📜 สารบัญ / Table of Contents</h2>
+<div class="toc">
+<h2><span class="en">📑 Table of Contents</span><span class="th">📑 สารบัญ</span></h2>
 <ul>
-<li><a href="#p121">Patch 1.2.1–1.2.2 谪仙雷吟</a></li>
-<li><a href="#p13">Patch 1.3.x 浮生万象</a></li>
-<li><a href="#p20">Patch 2.0–2.1 玄机万变</a></li>
-<li><a href="#p22">Patch 2.2–2.3 九州飞光</a></li>
-<li><a href="#p30">Patch 3.0–3.1 沙与海之歌</a></li>
-<li><a href="#pvp">PVP Guild League — All Patches</a></li>
-<li><a href="#inner">Inner Skill Tier List</a></li>
+<li><a href="#p12"><span class="en">1.2.1 – Transcendent Thunder (谪仙雷吟)</span><span class="th">1.2.1 – สายฟ้าเทพเนรมิต (谪仙雷吟)</span></a></li>
+<li><a href="#p13"><span class="en">1.3.x – Myriad Illusions (浮生万象)</span><span class="th">1.3.x – ภาพมายาแห่งชีวิต (浮生万象)</span></a></li>
+<li><a href="#p2"><span class="en">2.0–2.1 – Myriad Mysteries (玄机万变)</span><span class="th">2.0–2.1 – ปริศนาพันแปร (玄机万变)</span></a></li>
+<li><a href="#p22"><span class="en">2.2–2.3 – Nine Provinces (九州飞光)</span><span class="th">2.2–2.3 – แสงเหินเก้าแผ่นดิน (九州飞光)</span></a></li>
+<li><a href="#p3"><span class="en">3.0–3.1 – Song of Sand &amp; Sea (沙与海之歌)</span><span class="th">3.0–3.1 – เพลงทรายและทะเล (沙与海之歌)</span></a></li>
+<li><a href="#pvp"><span class="en">PVP — Formulas &amp; Per-Class Builds</span><span class="th">PVP — สูตรคำนวณ &amp; บิลด์แต่ละอาชีพ</span></a></li>
+<li><a href="#inner"><span class="en">Inner Skill (内功) Reference Table</span><span class="th">ตารางอ้างอิงวิชาภายใน (内功)</span></a></li>
 </ul>
-</nav>
+</div>
 
 <!-- ==================== PATCH 1.2.1 ==================== -->
-<div class="sec" id="p121">
-<div class="sh" onclick="T(this)"><h2><span class="pt p1">1.2.1–1.2.2</span> Transcendent Thunder 谪仙雷吟 <span class="mode pve">PVE</span></h2><span class="a">▼</span></div>
+<div class="sec" id="p12">
+<div class="sh" onclick="T(this)"><h2><span class="pt p1">1.2.1</span> <span class="en">Transcendent Thunder (谪仙雷吟)</span><span class="th">สายฟ้าเทพเนรมิต (谪仙雷吟)</span> <span class="mode pve">PVE</span></h2><span class="a">▼</span></div>
 <div class="sb">
-<p><strong>Season 1 Early</strong> — Lv.69 cap. Boss DEF ~1,500. <strong>DEF Pen build (破防流) is king.</strong></p>
+<p><strong><span class="en">Season 1 Early</span><span class="th">ซีซัน 1 ช่วงต้น</span></strong> — <span class="en">Hero Boss 1–2. Lv.55 Crafting (打造) opens. Focus: build accuracy, understand soft-cap.</span><span class="th">ฮีโร่บอส 1–2. คราฟต์ (打造) เลเวล 55 เปิด. เน้น: สร้างค่าแม่นยำ, ทำความเข้าใจ soft-cap.</span></p>
 
-<h3 class="ss">🎯 Universal PVE Thresholds (ค่ากลางทุกอาชีพ)</h3>
+<h3 class="ss">🎯 <span class="en">Universal PVE Stat Thresholds</span><span class="th">เกณฑ์สเตตัส PVE สากล</span></h3>
 <table>
-<tr><th>Stat</th><th>Minimum</th><th>Optimal</th><th>Notes</th></tr>
-<tr><td>Accuracy (命中)</td><td>850</td><td><strong>≥ 900</strong></td><td>Accessories/trait easily cover this</td></tr>
-<tr><td>Crit (会心)</td><td>1,200</td><td><strong>≥ 1,400</strong></td><td>With Crit pot + Eye of Mind → ~45% crit rate</td></tr>
-<tr><td>DEF Pen (破防)</td><td>1,500</td><td><strong>≥ 2,100</strong></td><td>Exceeding Boss DEF 1,500 → 0% mitigation!</td></tr>
-<tr><td>ATK (攻击)</td><td>2,500</td><td>3,000+</td><td>Incl. Restraint + base ATK</td></tr>
-<tr><td>Boss Restraint (首领克制)</td><td>300</td><td>450+</td><td>Adds directly to ATK pool</td></tr>
-<tr><td>Ele ATK (元素攻击)</td><td>300</td><td>400+</td><td>Relatively low value this patch</td></tr>
+<tr><th><span class="en">Stat</span><span class="th">สเตตัส</span></th><th><span class="en">Minimum</span><span class="th">ขั้นต่ำ</span></th><th><span class="en">Optimal</span><span class="th">ค่าเหมาะสม</span></th><th><span class="en">Cap / Warning</span><span class="th">จุดจำกัด / คำเตือน</span></th></tr>
+<tr><td><span class="en">Accuracy (命中)</span><span class="th">ค่าแม่นยำ (命中)</span></td><td>900</td><td><strong>1,100</strong></td><td><span class="en">Soft-cap ~1,200 (diminishing)</span><span class="th">Soft-cap ~1,200 (ลดทอน)</span></td></tr>
+<tr><td><span class="en">Crit (会心)</span><span class="th">คริติคอล (会心)</span></td><td>1,200</td><td><strong>1,500</strong></td><td><span class="en">No hard cap</span><span class="th">ไม่มี hard cap</span></td></tr>
+<tr><td><span class="en">ATK (攻击)</span><span class="th">พลังโจมตี (攻击)</span></td><td>3,500</td><td><strong>5,000</strong></td><td><span class="en">Scales linearly</span><span class="th">เพิ่มแบบเส้นตรง</span></td></tr>
+<tr><td><span class="en">DEF Pen (破防)</span><span class="th">ทะลุเกราะ (破防)</span></td><td>1,800</td><td><strong>2,800</strong></td><td><span class="en">Check boss DEF</span><span class="th">ตรวจค่า DEF ของบอส</span></td></tr>
+<tr><td><span class="en">Ele ATK (元素攻击)</span><span class="th">โจมตีธาตุ (元素攻击)</span></td><td>—</td><td>800</td><td><span class="en">Low priority early</span><span class="th">ไม่สำคัญช่วงต้น</span></td></tr>
 </table>
 
-<h3 class="ss">🗡️ Per-Class PVE Build (1.2.x)</h3>
+<h3 class="ss">🗡️ <span class="en">Per-Class PVE Build (Season 1 Early)</span><span class="th">บิลด์ PVE แต่ละอาชีพ (ซีซัน 1 ช่วงต้น)</span></h3>
 <table>
-<tr><th>Class</th><th>Role</th><th>Stat Points</th><th>Acc</th><th>Crit</th><th>DEF Pen</th><th>ATK</th><th>Inner Cycle</th><th>Mega-Trait</th></tr>
-<tr><td class="left"><strong>Suimeng 碎梦</strong></td><td><span class="rt dps">DPS</span></td><td>STR / Agility</td><td>900</td><td>1,400</td><td>2,100+</td><td>3,000</td><td>3G3F</td><td>Danyan Ningbing</td></tr>
-<tr><td class="left"><strong>Shenxiang 神相</strong></td><td><span class="rt dps">DPS</span></td><td>Spirit / Agility</td><td>900</td><td>1,400</td><td>2,100+</td><td>3,000</td><td>3G3F</td><td>Suimeng</td></tr>
-<tr><td class="left"><strong>Xuehe 血河</strong></td><td><span class="rt dps">DPS</span></td><td>STR / Agility</td><td>900</td><td>1,400</td><td>2,100+</td><td>2,800</td><td>3G2W1F</td><td>Shenxiang</td></tr>
-<tr><td class="left"><strong>Longyin 龙吟</strong></td><td><span class="rt dps">DPS</span></td><td>Agility / Spirit</td><td>900</td><td>1,400</td><td>2,100+</td><td>2,800</td><td>3F3W</td><td>Jiuling</td></tr>
-<tr><td class="left"><strong>Jiuling 九灵</strong></td><td><span class="rt dps">DPS</span></td><td>Agility / Spirit</td><td>900</td><td>1,400</td><td>2,100+</td><td>2,800</td><td>3G3F</td><td>Shenxiang</td></tr>
-<tr><td class="left"><strong>Tieyi 铁衣 (DPS)</strong></td><td><span class="rt dps">DPS</span></td><td>Agility / STR</td><td>900</td><td>1,400</td><td>2,100+</td><td>2,800</td><td>3G3W</td><td>Danyan Ningbing</td></tr>
-<tr><td class="left"><strong>Tieyi 铁衣 (Tank)</strong></td><td><span class="rt tnk">Tank</span></td><td>Endurance / Constitution</td><td>—</td><td>—</td><td>—</td><td>—</td><td>3W3Earth</td><td>Blood Shield</td></tr>
-<tr><td class="left"><strong>Suwen 素问 (DPS)</strong></td><td><span class="rt dps">DPS</span></td><td>Agility / Spirit</td><td>900</td><td>1,400</td><td>2,100+</td><td>2,800</td><td>3G3W</td><td>Chongxu trait</td></tr>
-<tr><td class="left"><strong>Suwen 素问 (Heal)</strong></td><td><span class="rt hea">Heal</span></td><td>Spirit / Constitution</td><td>—</td><td>—</td><td>—</td><td>—</td><td>3G3W</td><td>Juling</td></tr>
+<tr><th><span class="en">Class</span><span class="th">อาชีพ</span></th><th><span class="en">Role</span><span class="th">บทบาท</span></th><th><span class="en">Stats</span><span class="th">สเตตัส</span></th><th><span class="en">Acc (命中)</span><span class="th">แม่นยำ (命中)</span></th><th><span class="en">Crit (会心)</span><span class="th">คริ (会心)</span></th><th><span class="en">ATK (攻击)</span><span class="th">โจมตี (攻击)</span></th><th><span class="en">DEF Pen (破防)</span><span class="th">ทะลุเกราะ (破防)</span></th><th><span class="en">Notes</span><span class="th">หมายเหตุ</span></th></tr>
+<tr><td class="left"><strong><span class="en">Shattered Dreams (碎梦)</span><span class="th">ฝันสลาย (碎梦)</span></strong></td><td><span class="rt dps">DPS</span></td><td>STR/Agi</td><td>1,100</td><td>1,500</td><td>5K</td><td>2,800</td><td><span class="en">Melee burst; raw ATK</span><span class="th">โจมตีระยะประชิด; เน้น ATK</span></td></tr>
+<tr><td class="left"><strong><span class="en">Divine Visage (神相)</span><span class="th">เทพพยากรณ์ (神相)</span></strong></td><td><span class="rt dps">DPS</span></td><td>Spirit/Agi</td><td>1,100</td><td>1,500</td><td>5K</td><td>2,800</td><td><span class="en">Ranged; Ele ATK early helps</span><span class="th">โจมตีระยะไกล; โจมตีธาตุช่วยได้ช่วงต้น</span></td></tr>
+<tr><td class="left"><strong><span class="en">Blood River (血河)</span><span class="th">สายเลือด (血河)</span></strong></td><td><span class="rt dps">DPS</span></td><td>STR/Agi</td><td>1,100</td><td>1,500</td><td>5K</td><td>2,800</td><td><span class="en">Self-heal via damage</span><span class="th">ดูดเลือดจากการโจมตี</span></td></tr>
+<tr><td class="left"><strong><span class="en">Dragon's Roar (龙吟)</span><span class="th">มังกรคำราม (龙吟)</span></strong></td><td><span class="rt dps">DPS</span></td><td>Agi/Spirit</td><td>1,100</td><td>1,400</td><td>4.5K</td><td>2,600</td><td><span class="en">DoT-based; DEF Pen > ATK</span><span class="th">เน้น DoT; ทะลุเกราะ > โจมตี</span></td></tr>
+<tr><td class="left"><strong><span class="en">Nine Spirits (九灵)</span><span class="th">เก้าวิญญาณ (九灵)</span></strong></td><td><span class="rt dps">DPS</span></td><td>Agi/Spirit</td><td>1,100</td><td>1,500</td><td>5K</td><td>2,800</td><td><span class="en">Pet-scaling; balanced</span><span class="th">สเกลตามสัตว์เลี้ยง; สมดุล</span></td></tr>
+<tr><td class="left"><strong><span class="en">Iron Clad (铁衣) DPS</span><span class="th">เกราะเหล็ก (铁衣) DPS</span></strong></td><td><span class="rt dps">DPS</span></td><td>Agi/STR</td><td>1,000</td><td>1,300</td><td>4.5K</td><td>2,600</td><td><span class="en">Lower Crit OK; focus DEF Pen</span><span class="th">คริต่ำได้; เน้นทะลุเกราะ</span></td></tr>
+<tr><td class="left"><strong><span class="en">Iron Clad (铁衣) Tank</span><span class="th">เกราะเหล็ก (铁衣) แทงค์</span></strong></td><td><span class="rt tnk">Tank</span></td><td>End/Con</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="en">DEF + HP + Block (格挡)</span><span class="th">ป้องกัน + พลังชีวิต + บล็อก (格挡)</span></td></tr>
+<tr><td class="left"><strong><span class="en">Plain Questions (素问) DPS</span><span class="th">สุเหวิน (素问) DPS</span></strong></td><td><span class="rt dps">DPS</span></td><td>Agi/Spirit</td><td>1,100</td><td>1,500</td><td>5K</td><td>2,800</td><td><span class="en">Ele build preferred</span><span class="th">เน้นบิลด์ธาตุ</span></td></tr>
+<tr><td class="left"><strong><span class="en">Plain Questions (素问) Heal</span><span class="th">สุเหวิน (素问) ฮีล</span></strong></td><td><span class="rt hea">Heal</span></td><td>Spirit/Con</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="en">Stack Spirit for heal power</span><span class="th">เน้น Spirit เพื่อเพิ่มพลังฮีล</span></td></tr>
+<tr><td class="left"><strong><span class="en">Azure Tide (沧澜)</span><span class="th">คลื่นสีคราม (沧澜)</span></strong></td><td><span class="rt dps">DPS</span></td><td>Spirit/Agi</td><td>1,100</td><td>1,500</td><td>5K</td><td>2,800</td><td><span class="en">Water Ele build</span><span class="th">บิลด์ธาตุน้ำ</span></td></tr>
 </table>
 
-<h3 class="ss">⚔️ Equipment Set (1.2.1)</h3>
-<table>
-<tr><th>Slot</th><th>Best Choice</th><th>Notes</th></tr>
-<tr><td>Weapon</td><td>75-Lv Bailian / Orange Weapon</td><td>Highest ATK base</td></tr>
-<tr><td>Armor</td><td>75-Lv Unique: Muye·Yougu罩袍 (Jiuling) / Relevant class unique</td><td>Highest priority unique slot</td></tr>
-<tr><td>Gloves</td><td>75-Lv Unique: Leiyin·Guqin Yinzhi</td><td>DEF Pen + Boss Restraint</td></tr>
-<tr><td>Necklace</td><td>75-Lv Unique: Muye·Duming Necklace</td><td>ATK + Ele ATK</td></tr>
-<tr><td>Ring</td><td>PVE: 75 Unique Liuzunshi·Yuxia Ring / PVP: Bailian Yujing Ring</td><td>Boss Restraint vs Block</td></tr>
-<tr><td>Accessories</td><td>75-Lv Yuehen 2-Set</td><td>+Crit% and +Accuracy</td></tr>
-<tr><td>Head/Belt/Bracer/Shoes</td><td>75-Lv Xuanye 4-Set (百炼)</td><td>+Boss Restraint%</td></tr>
-</table>
-
-<div class="tip"><strong>💡 สรุป 1.2.x:</strong> เน้น DEF Pen (破防) ให้เกิน Boss DEF (~1,500) จะกลายเป็น 0% mitigation → ดาเมจพุ่งสูงมาก ลอง stack ATK/Restraint เสริม</div>
+<div class="tip"><strong>💡 <span class="en">Tip:</span><span class="th">เคล็ดลับ:</span></strong> <span class="en">At Patch 1.2, Crafting (打造) Lv.55 gear is your main stat source. Upgrade accessories first — they give the highest stat per slot. Always check the soft-cap curve before stacking a single stat past 1,200.</span><span class="th">ในแพทช์ 1.2 อุปกรณ์คราฟต์ (打造) เลเวล 55 เป็นแหล่งสเตตัสหลัก อัปเกรดเครื่องประดับก่อน — ให้สเตตัสต่อช่องสูงที่สุด ตรวจสอบเส้นโค้ง soft-cap ก่อนสแต็คสเตตัสเดียวเกิน 1,200 เสมอ</span></div>
 </div></div>
 
-<!-- ==================== PATCH 1.3.x ==================== -->
+<!-- ==================== PATCH 1.3 ==================== -->
 <div class="sec" id="p13">
-<div class="sh" onclick="T(this)"><h2><span class="pt p13">1.3.x</span> Myriad Illusions 浮生万象 <span class="mode pve">PVE</span></h2><span class="a">▼</span></div>
+<div class="sh" onclick="T(this)"><h2><span class="pt p13">1.3.x</span> <span class="en">Myriad Illusions (浮生万象)</span><span class="th">ภาพมายาแห่งชีวิต (浮生万象)</span> <span class="mode pve">PVE</span></h2><span class="a">▼</span></div>
 <div class="sb">
-<p><strong>Season 1 Late</strong> — Boss DEF leapt to ~5,500. <strong>Element Flow (元素流) takes over.</strong> DEF Pen "fell from the altar".</p>
+<p><strong><span class="en">Season 1 Mid-Late</span><span class="th">ซีซัน 1 ช่วงกลาง-ปลาย</span></strong> — <span class="en">Hero Boss 3–4. Zhou Tian (周天) system fully active. Ele ATK becomes meaningful. Guild League (帮会联赛) PVP meta emerges.</span><span class="th">ฮีโร่บอส 3–4. ระบบวงจรโจวเทียน (周天) เปิดใช้เต็มรูปแบบ. โจมตีธาตุ (元素攻击) เริ่มสำคัญ. เมตา PVP ลีกสำนัก (帮会联赛) เริ่มก่อตัว.</span></p>
 
-<h3 class="ss">🎯 Universal PVE Thresholds</h3>
+<h3 class="ss">🎯 <span class="en">Universal PVE Thresholds (1.3 Mid)</span><span class="th">เกณฑ์สเตตัส PVE สากล (1.3 กลาง)</span></h3>
 <table>
-<tr><th>Stat</th><th>Minimum</th><th>Optimal</th><th>Notes</th></tr>
-<tr><td>Accuracy</td><td>1,100</td><td><strong>≥ 1,300</strong></td><td>Must hit; missing = 0 damage</td></tr>
-<tr><td>Crit</td><td>1,800</td><td><strong>≥ 2,100</strong></td><td>With Crit pot + Eye of Mind in raid</td></tr>
-<tr><td>DEF Pen</td><td>1,500</td><td>~2,000</td><td>No longer #1; diminishing vs 5,500 Boss DEF</td></tr>
-<tr><td>Ele ATK (全元素)</td><td>600</td><td><strong>≥ 900</strong></td><td><span class="tier t0">T1!</span> Now rivals DEF Pen per slot</td></tr>
-<tr><td>ATK + Restraint</td><td>5,500</td><td>6,500+</td><td>Boss Resist = 1,500, eats into your ATK pool</td></tr>
+<tr><th><span class="en">Stat</span><span class="th">สเตตัส</span></th><th><span class="en">Minimum</span><span class="th">ขั้นต่ำ</span></th><th><span class="en">Optimal</span><span class="th">ค่าเหมาะสม</span></th><th><span class="en">Cap / Warning</span><span class="th">จุดจำกัด / คำเตือน</span></th></tr>
+<tr><td><span class="en">Accuracy (命中)</span><span class="th">ค่าแม่นยำ (命中)</span></td><td>1,500</td><td><strong>1,800</strong></td><td><span class="en">Some bosses need 2,000+</span><span class="th">บางบอสต้องใช้ 2,000+</span></td></tr>
+<tr><td><span class="en">Crit (会心)</span><span class="th">คริติคอล (会心)</span></td><td>2,000</td><td><strong>2,500</strong></td><td><span class="en">Higher = faster clear</span><span class="th">สูงกว่า = เคลียร์เร็วขึ้น</span></td></tr>
+<tr><td><span class="en">ATK (攻击)</span><span class="th">พลังโจมตี (攻击)</span></td><td>7,000</td><td><strong>9,500</strong></td><td><span class="en">Zhou Tian (周天) bonus adds ~1K</span><span class="th">วงจรโจวเทียน (周天) เพิ่ม ~1K</span></td></tr>
+<tr><td><span class="en">DEF Pen (破防)</span><span class="th">ทะลุเกราะ (破防)</span></td><td>4,000</td><td><strong>6,000</strong></td><td><span class="en">Boss DEF rising</span><span class="th">DEF บอสเพิ่มขึ้น</span></td></tr>
+<tr><td><span class="en">Ele ATK (元素攻击)</span><span class="th">โจมตีธาตุ (元素攻击)</span></td><td>1,500</td><td><strong>2,500</strong></td><td><span class="en">Match your class element</span><span class="th">ตรงกับธาตุของอาชีพ</span></td></tr>
+<tr><td><span class="en">Boss Restraint (首领克制)</span><span class="th">ค่าข่มบอส (首领克制)</span></td><td>500</td><td><strong>1,000</strong></td><td><span class="en">New stat — boosts boss DMG</span><span class="th">สเตตัสใหม่ — เพิ่ม DMG ต่อบอส</span></td></tr>
 </table>
 
-<h3 class="ss">🗡️ Per-Class PVE Build (1.3.x)</h3>
+<h3 class="ss">🗡️ <span class="en">Per-Class PVE Build (Season 1 Mid-Late)</span><span class="th">บิลด์ PVE แต่ละอาชีพ (ซีซัน 1 กลาง-ปลาย)</span></h3>
 <table>
-<tr><th>Class</th><th>Role</th><th>Stats</th><th>Acc</th><th>Crit</th><th>Ele ATK</th><th>DEF Pen</th><th>Inner Cycle</th><th>Equipment Path</th></tr>
-<tr><td class="left"><strong>Suimeng</strong></td><td><span class="rt dps">DPS</span></td><td>STR/Agi (240+Agi)</td><td>1,300</td><td>2,100</td><td>900+</td><td>~1,500</td><td>3G3F</td><td>3-Unique+2-Set</td></tr>
-<tr><td class="left"><strong>Shenxiang</strong></td><td><span class="rt dps">DPS</span></td><td>Spirit/Agi</td><td>1,300</td><td>2,100</td><td>900+</td><td>~1,500</td><td>3G3F</td><td>4-Set+Xinmo</td></tr>
-<tr><td class="left"><strong>Xuehe</strong></td><td><span class="rt dps">DPS</span></td><td>Agi/STR (240+Agi)</td><td>1,300</td><td>2,100</td><td>900+</td><td>~1,500</td><td>3G2W1F</td><td>4-Set+Xinmo</td></tr>
-<tr><td class="left"><strong>Longyin</strong></td><td><span class="rt dps">DPS</span></td><td>Agi/Spirit</td><td>1,300</td><td>2,000</td><td>800+</td><td>~2,000</td><td>3F3W</td><td>4-Set+Xinmo (raid) / 3-Unique (dummy)</td></tr>
-<tr><td class="left"><strong>Jiuling</strong></td><td><span class="rt dps">DPS</span></td><td>Agi/Spirit</td><td>1,300</td><td>2,100</td><td>900+</td><td>~1,500</td><td>3G3F</td><td>4-Set / 3-Unique</td></tr>
-<tr><td class="left"><strong>Tieyi DPS</strong></td><td><span class="rt dps">DPS</span></td><td>Agi/STR</td><td>1,300</td><td>2,000</td><td>800+</td><td>~1,500</td><td>3G3W</td><td>3-Unique+2-Set</td></tr>
-<tr><td class="left"><strong>Tieyi Tank</strong></td><td><span class="rt tnk">Tank</span></td><td>End/Con</td><td>—</td><td>—</td><td>—</td><td>—</td><td>3W3Earth</td><td>Full DEF set</td></tr>
-<tr><td class="left"><strong>Suwen DPS</strong></td><td><span class="rt dps">DPS</span></td><td>Agi/Spirit</td><td>1,300</td><td>2,000</td><td>900+</td><td>~1,500</td><td>3G3W</td><td>3-Unique+Liu Canghai</td></tr>
-<tr><td class="left"><strong>Suwen Heal</strong></td><td><span class="rt hea">Heal</span></td><td>Spirit/Con</td><td>—</td><td>—</td><td>—</td><td>—</td><td>3G3W</td><td>Heitou+4-Set</td></tr>
+<tr><th><span class="en">Class</span><span class="th">อาชีพ</span></th><th><span class="en">Stats</span><span class="th">สเตตัส</span></th><th><span class="en">Acc (命中)</span><span class="th">แม่นยำ (命中)</span></th><th><span class="en">Crit (会心)</span><span class="th">คริ (会心)</span></th><th><span class="en">ATK (攻击)</span><span class="th">โจมตี (攻击)</span></th><th><span class="en">DEF Pen (破防)</span><span class="th">ทะลุเกราะ (破防)</span></th><th><span class="en">Ele ATK (元素攻击)</span><span class="th">โจมตีธาตุ (元素攻击)</span></th><th><span class="en">Build Flow</span><span class="th">แนวทางบิลด์</span></th></tr>
+<tr><td class="left"><strong><span class="en">Shattered Dreams (碎梦)</span><span class="th">ฝันสลาย (碎梦)</span></strong></td><td>STR/Agi</td><td>1,800</td><td>2,500</td><td>9.5K</td><td>6K</td><td>2K</td><td><span class="en">ATK core → Ele sub</span><span class="th">เน้น ATK → ธาตุเสริม</span></td></tr>
+<tr><td class="left"><strong><span class="en">Divine Visage (神相)</span><span class="th">เทพพยากรณ์ (神相)</span></strong></td><td>Spirit/Agi</td><td>1,800</td><td>2,500</td><td>9.5K</td><td>6K</td><td>2.5K</td><td><span class="en">Ele build growing</span><span class="th">บิลด์ธาตุเริ่มแรง</span></td></tr>
+<tr><td class="left"><strong><span class="en">Blood River (血河)</span><span class="th">สายเลือด (血河)</span></strong></td><td>STR/Agi</td><td>1,800</td><td>2,500</td><td>9.5K</td><td>6K</td><td>2K</td><td><span class="en">ATK/Ele hybrid</span><span class="th">ผสม ATK/ธาตุ</span></td></tr>
+<tr><td class="left"><strong><span class="en">Dragon's Roar (龙吟)</span><span class="th">มังกรคำราม (龙吟)</span></strong></td><td>Agi/Spirit</td><td>1,600</td><td>2,300</td><td>8.5K</td><td>6.5K</td><td>2K</td><td><span class="en">DEF Pen focus, DoT scaling</span><span class="th">เน้นทะลุเกราะ, DoT สเกล</span></td></tr>
+<tr><td class="left"><strong><span class="en">Nine Spirits (九灵)</span><span class="th">เก้าวิญญาณ (九灵)</span></strong></td><td>Agi/Spirit</td><td>1,800</td><td>2,500</td><td>9K</td><td>5.5K</td><td>2.5K</td><td><span class="en">Pet Ele synergy</span><span class="th">สัตว์เลี้ยง + ธาตุเสริม</span></td></tr>
+<tr><td class="left"><strong><span class="en">Mystic (玄机)</span><span class="th">ปริศนา (玄机)</span></strong></td><td>Spirit/Agi</td><td>1,800</td><td>2,500</td><td>9.5K</td><td>5.5K</td><td>2.5K</td><td><span class="en">Wind Ele start</span><span class="th">เริ่มบิลด์ธาตุลม</span></td></tr>
+<tr><td class="left"><strong><span class="en">Iron Clad (铁衣) DPS</span><span class="th">เกราะเหล็ก (铁衣) DPS</span></strong></td><td>Agi/STR</td><td>1,600</td><td>2,200</td><td>8.5K</td><td>6K</td><td>1.5K</td><td><span class="en">ATK focus, low Ele</span><span class="th">เน้น ATK, ธาตุต่ำ</span></td></tr>
+<tr><td class="left"><strong><span class="en">Iron Clad (铁衣) Tank</span><span class="th">เกราะเหล็ก (铁衣) แทงค์</span></strong></td><td>End/Con</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="en">DEF + Qi Shield (气盾) + Block (格挡)</span><span class="th">ป้องกัน + โล่ชี่ (气盾) + บล็อก (格挡)</span></td></tr>
+<tr><td class="left"><strong><span class="en">Plain Questions (素问) DPS</span><span class="th">สุเหวิน (素问) DPS</span></strong></td><td>Agi/Spirit</td><td>1,800</td><td>2,500</td><td>9K</td><td>5.5K</td><td>2.5K</td><td><span class="en">Ele flow</span><span class="th">บิลด์ธาตุ</span></td></tr>
+<tr><td class="left"><strong><span class="en">Plain Questions (素问) Heal</span><span class="th">สุเหวิน (素问) ฮีล</span></strong></td><td>Spirit/Con</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="en">Spirit stack + Zhou Tian heal cycle</span><span class="th">สแต็ค Spirit + วงจรฮีลโจวเทียน</span></td></tr>
+<tr><td class="left"><strong><span class="en">Azure Tide (沧澜)</span><span class="th">คลื่นสีคราม (沧澜)</span></strong></td><td>Spirit/Agi</td><td>1,800</td><td>2,500</td><td>9.5K</td><td>5.5K</td><td>2.5K</td><td><span class="en">Water Ele scaling</span><span class="th">สเกลธาตุน้ำ</span></td></tr>
 </table>
 
-<h3 class="ss">📊 Substat Priority Shift (1.2 → 1.3)</h3>
-<table>
-<tr><th>Tier</th><th>Patch 1.2.x</th><th>Patch 1.3.x</th></tr>
-<tr><td><span class="tier t0">T0</span></td><td>DEF Pen (อันดับ 1 ชัดเจน)</td><td>—</td></tr>
-<tr><td><span class="tier t1">T1</span></td><td>STR/Spirit, ATK</td><td>Crit, All-Ele ATK, Agility, Accuracy</td></tr>
-<tr><td><span class="tier t15">T1.5</span></td><td>Ele ATK, Crit, Accuracy</td><td>DEF Pen, Single-Ele ATK</td></tr>
-<tr><td><span class="tier t2">T2</span></td><td>Boss Restraint, Min/Max ATK</td><td>STR/Spirit, ATK</td></tr>
-<tr><td><span class="tier t3">T3</span></td><td>Agility</td><td>Boss Restraint, Min/Max ATK</td></tr>
-</table>
+<h3 class="ss">📐 <span class="en">Key PVE Formulas (Lv.55 – Lv.69)</span><span class="th">สูตร PVE สำคัญ (เลเวล 55 – 69)</span></h3>
+<div class="fb"><span class="l">🎯 <span class="en">HIT RATE</span><span class="th">อัตราการโจมตีโดน</span></span><span class="en">Hit Rate = Base 90% + f(Accuracy − Boss Block)</span><span class="th">อัตราโดน = ฐาน 90% + f(ค่าแม่นยำ − บล็อกบอส)</span><br><span class="en">Soft-cap starts around 1,200 Accuracy.</span><span class="th">Soft-cap เริ่มที่ค่าแม่นยำประมาณ 1,200</span></div>
+<div class="fb"><span class="l">⚡ <span class="en">CRIT RATE</span><span class="th">อัตราคริติคอล</span></span><span class="en">Crit Rate = f(Crit) / (f(Crit) + constant) — sigmoid curve, ~35% at 1,500, ~50% at 2,500.</span><span class="th">อัตราคริ = f(คริ) / (f(คริ) + ค่าคงที่) — เส้นโค้ง sigmoid, ~35% ที่ 1,500, ~50% ที่ 2,500</span></div>
+<div class="fb"><span class="l">🛡️ <span class="en">DEF PEN EFFECTIVENESS</span><span class="th">ประสิทธิภาพทะลุเกราะ</span></span><span class="en">DMG Bonus = DEF Pen / (DEF Pen + Boss DEF + constant)</span><span class="th">โบนัส DMG = ทะลุเกราะ / (ทะลุเกราะ + DEF บอส + ค่าคงที่)</span><br><span class="en">Monitor boss DEF each patch — the constant shifts.</span><span class="th">ตรวจสอบ DEF บอสทุกแพทช์ — ค่าคงที่จะเปลี่ยน</span></div>
+
+<div class="tip"><strong>💡 <span class="en">Tip:</span><span class="th">เคล็ดลับ:</span></strong> <span class="en">Zhou Tian (周天) cycles are now core. Activate Ele-matching nodes first for maximum synergy. Boss Restraint (首领克制) starts mattering for Hero Boss 3+.</span><span class="th">ระบบวงจรโจวเทียน (周天) เป็นหัวใจสำคัญแล้วตอนนี้ เปิดโหนดที่ตรงธาตุก่อนเพื่อ synergy สูงสุด ค่าข่มบอส (首领克制) เริ่มสำคัญตั้งแต่ฮีโร่บอส 3 ขึ้นไป</span></div>
 </div></div>
 
-<!-- ==================== PATCH 2.0-2.1 ==================== -->
-<div class="sec" id="p20">
-<div class="sh" onclick="T(this)"><h2><span class="pt p2">2.0–2.1</span> Xuanji Myriad 玄机万变 <span class="mode pve">PVE</span></h2><span class="a">▼</span></div>
+<!-- ==================== PATCH 2.0 ==================== -->
+<div class="sec" id="p2">
+<div class="sh" onclick="T(this)"><h2><span class="pt p2">2.0–2.1</span> <span class="en">Myriad Mysteries (玄机万变)</span><span class="th">ปริศนาพันแปร (玄机万变)</span> <span class="mode pve">PVE</span> <span class="mode pvp">PVP</span></h2><span class="a">▼</span></div>
 <div class="sb">
-<p><strong>🔄 SEASON 2 RESET!</strong> Lv.79 cap. Xuanji class added. All gear/jade/enhance reset.</p>
+<p><strong><span class="en">Season 2 Early-Mid</span><span class="th">ซีซัน 2 ช่วงต้น-กลาง</span></strong> — <span class="en">Hero Boss 5. Lv.79 cap. Mystic (玄机) class added. New PVP formulas. Major stat inflation — re-calibrate everything.</span><span class="th">ฮีโร่บอส 5. แคปเลเวล 79. เพิ่มอาชีพปริศนา (玄机). สูตร PVP ใหม่. สเตตัสเพิ่มขึ้นมาก — ต้องปรับใหม่ทั้งหมด.</span></p>
 
-<h3 class="ss">🎯 Universal PVE Thresholds (Season 2)</h3>
+<h3 class="ss">🎯 <span class="en">Universal PVE Thresholds (2.0)</span><span class="th">เกณฑ์สเตตัส PVE สากล (2.0)</span></h3>
 <table>
-<tr><th>Stat</th><th>Early Season</th><th>Mid Season</th><th>Late Season (Hero)</th></tr>
-<tr><td>Accuracy</td><td>2,000</td><td>2,400</td><td><strong>2,800</strong></td></tr>
-<tr><td>Crit</td><td>2,800</td><td>3,200</td><td><strong>3,700+</strong></td></tr>
-<tr><td>ATK</td><td>8,000</td><td>12,000</td><td><strong>16,000+</strong></td></tr>
-<tr><td>DEF Pen</td><td>6,000</td><td>9,000</td><td><strong>12,500+</strong></td></tr>
-<tr><td>Ele ATK</td><td>2,000</td><td>3,500</td><td><strong>5,000+</strong></td></tr>
-<tr><td>Boss Restraint</td><td>3,000</td><td>5,500</td><td><strong>8,300+</strong></td></tr>
+<tr><th><span class="en">Stat</span><span class="th">สเตตัส</span></th><th><span class="en">Minimum</span><span class="th">ขั้นต่ำ</span></th><th><span class="en">Optimal</span><span class="th">ค่าเหมาะสม</span></th><th><span class="en">Cap / Warning</span><span class="th">จุดจำกัด / คำเตือน</span></th></tr>
+<tr><td><span class="en">Accuracy (命中)</span><span class="th">ค่าแม่นยำ (命中)</span></td><td>2,500</td><td><strong>2,800</strong></td><td><span class="en">Boss needs ~2,800 min</span><span class="th">บอสต้องการ ~2,800 ขั้นต่ำ</span></td></tr>
+<tr><td><span class="en">Crit (会心)</span><span class="th">คริติคอล (会心)</span></td><td>3,200</td><td><strong>3,700</strong></td><td><span class="en">Push higher for Hero 5</span><span class="th">ดันให้สูงกว่านี้สำหรับฮีโร่ 5</span></td></tr>
+<tr><td><span class="en">ATK (攻击)</span><span class="th">พลังโจมตี (攻击)</span></td><td>13,000</td><td><strong>16,000</strong></td><td><span class="en">Ele ATK now rivals raw ATK</span><span class="th">โจมตีธาตุเริ่มเทียบเท่า ATK ดิบ</span></td></tr>
+<tr><td><span class="en">DEF Pen (破防)</span><span class="th">ทะลุเกราะ (破防)</span></td><td>8,000</td><td><strong>12,500</strong></td><td><span class="en">Heavy scaling this patch</span><span class="th">สเกลหนักในแพทช์นี้</span></td></tr>
+<tr><td><span class="en">Ele ATK (元素攻击)</span><span class="th">โจมตีธาตุ (元素攻击)</span></td><td>3,500</td><td><strong>5,000</strong></td><td><span class="en">Ele Ignore (元素无视) matters now</span><span class="th">เพิกเฉยธาตุ (元素无视) สำคัญแล้ว</span></td></tr>
+<tr><td><span class="en">Boss Restraint (首领克制)</span><span class="th">ค่าข่มบอส (首领克制)</span></td><td>3,000</td><td>5,500</td><td><strong>8,300+</strong></td></tr>
 </table>
 
-<h3 class="ss">🗡️ Per-Class PVE (Season 2 Mid-Late)</h3>
+<h3 class="ss">🗡️ <span class="en">Per-Class PVE (Season 2 Mid-Late)</span><span class="th">บิลด์ PVE แต่ละอาชีพ (ซีซัน 2 กลาง-ปลาย)</span></h3>
 <table>
-<tr><th>Class</th><th>Stats</th><th>Acc</th><th>Crit</th><th>ATK</th><th>DEF Pen</th><th>Ele ATK</th><th>Build Flow</th></tr>
-<tr><td class="left"><strong>Suimeng</strong></td><td>STR/Agi</td><td>2,800</td><td>3,700</td><td>16K</td><td>12.5K</td><td>5K</td><td>Ele flow</td></tr>
-<tr><td class="left"><strong>Shenxiang</strong></td><td>Spirit/Agi</td><td>2,800</td><td>3,700</td><td>16K</td><td>12.5K</td><td>5K</td><td>Ele flow</td></tr>
-<tr><td class="left"><strong>Xuehe</strong></td><td>STR/Agi</td><td>2,800</td><td>3,700</td><td>16K</td><td>12.5K</td><td>5K</td><td>Ele/ATK flow</td></tr>
-<tr><td class="left"><strong>Longyin</strong></td><td>Agi/Spirit</td><td>2,600</td><td>3,500</td><td>15K</td><td>13K</td><td>4.5K</td><td>DEF Pen/ATK hybrid</td></tr>
-<tr><td class="left"><strong>Jiuling</strong></td><td>Agi/Spirit</td><td>2,800</td><td>3,700</td><td>15K</td><td>12K</td><td>5K</td><td>Ele flow</td></tr>
-<tr><td class="left"><strong>Xuanji 玄机</strong></td><td>Spirit/Agi</td><td>2,800</td><td>3,700</td><td>16K</td><td>12K</td><td>5.5K</td><td>Ele flow (Wind)</td></tr>
-<tr><td class="left"><strong>Tieyi DPS</strong></td><td>Agi/STR</td><td>2,600</td><td>3,500</td><td>15K</td><td>12K</td><td>4.5K</td><td>ATK flow</td></tr>
-<tr><td class="left"><strong>Tieyi Tank</strong></td><td>End/Con</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>DEF+Earth cycle</td></tr>
-<tr><td class="left"><strong>Suwen DPS</strong></td><td>Agi/Spirit</td><td>2,800</td><td>3,700</td><td>15K</td><td>12K</td><td>5K</td><td>Ele flow</td></tr>
-<tr><td class="left"><strong>Suwen Heal</strong></td><td>Spirit/Con</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>ATK→Heal cycle</td></tr>
+<tr><th><span class="en">Class</span><span class="th">อาชีพ</span></th><th><span class="en">Stats</span><span class="th">สเตตัส</span></th><th><span class="en">Acc (命中)</span><span class="th">แม่นยำ (命中)</span></th><th><span class="en">Crit (会心)</span><span class="th">คริ (会心)</span></th><th><span class="en">ATK (攻击)</span><span class="th">โจมตี (攻击)</span></th><th><span class="en">DEF Pen (破防)</span><span class="th">ทะลุเกราะ (破防)</span></th><th><span class="en">Ele ATK (元素攻击)</span><span class="th">โจมตีธาตุ (元素攻击)</span></th><th><span class="en">Build Flow</span><span class="th">แนวทางบิลด์</span></th></tr>
+<tr><td class="left"><strong><span class="en">Shattered Dreams (碎梦)</span><span class="th">ฝันสลาย (碎梦)</span></strong></td><td>STR/Agi</td><td>2,800</td><td>3,700</td><td>16K</td><td>12.5K</td><td>5K</td><td><span class="en">Ele flow</span><span class="th">บิลด์ธาตุ</span></td></tr>
+<tr><td class="left"><strong><span class="en">Divine Visage (神相)</span><span class="th">เทพพยากรณ์ (神相)</span></strong></td><td>Spirit/Agi</td><td>2,800</td><td>3,700</td><td>16K</td><td>12.5K</td><td>5K</td><td><span class="en">Ele flow</span><span class="th">บิลด์ธาตุ</span></td></tr>
+<tr><td class="left"><strong><span class="en">Blood River (血河)</span><span class="th">สายเลือด (血河)</span></strong></td><td>STR/Agi</td><td>2,800</td><td>3,700</td><td>16K</td><td>12.5K</td><td>5K</td><td><span class="en">Ele/ATK flow</span><span class="th">บิลด์ธาตุ/โจมตี</span></td></tr>
+<tr><td class="left"><strong><span class="en">Dragon's Roar (龙吟)</span><span class="th">มังกรคำราม (龙吟)</span></strong></td><td>Agi/Spirit</td><td>2,600</td><td>3,500</td><td>15K</td><td>13K</td><td>4.5K</td><td><span class="en">DEF Pen/ATK hybrid</span><span class="th">ทะลุเกราะ/โจมตีผสม</span></td></tr>
+<tr><td class="left"><strong><span class="en">Nine Spirits (九灵)</span><span class="th">เก้าวิญญาณ (九灵)</span></strong></td><td>Agi/Spirit</td><td>2,800</td><td>3,700</td><td>15K</td><td>12K</td><td>5K</td><td><span class="en">Ele flow</span><span class="th">บิลด์ธาตุ</span></td></tr>
+<tr><td class="left"><strong><span class="en">Mystic (玄机)</span><span class="th">ปริศนา (玄机)</span></strong></td><td>Spirit/Agi</td><td>2,800</td><td>3,700</td><td>16K</td><td>12K</td><td>5.5K</td><td><span class="en">Ele flow (Wind)</span><span class="th">บิลด์ธาตุ (ลม)</span></td></tr>
+<tr><td class="left"><strong><span class="en">Iron Clad (铁衣) DPS</span><span class="th">เกราะเหล็ก (铁衣) DPS</span></strong></td><td>Agi/STR</td><td>2,600</td><td>3,500</td><td>15K</td><td>12K</td><td>4.5K</td><td><span class="en">ATK flow</span><span class="th">บิลด์โจมตี</span></td></tr>
+<tr><td class="left"><strong><span class="en">Iron Clad (铁衣) Tank</span><span class="th">เกราะเหล็ก (铁衣) แทงค์</span></strong></td><td>End/Con</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="en">DEF+Earth cycle</span><span class="th">วงจรป้องกัน+ธาตุดิน</span></td></tr>
+<tr><td class="left"><strong><span class="en">Plain Questions (素问) DPS</span><span class="th">สุเหวิน (素问) DPS</span></strong></td><td>Agi/Spirit</td><td>2,800</td><td>3,700</td><td>15K</td><td>12K</td><td>5K</td><td><span class="en">Ele flow</span><span class="th">บิลด์ธาตุ</span></td></tr>
+<tr><td class="left"><strong><span class="en">Plain Questions (素问) Heal</span><span class="th">สุเหวิน (素问) ฮีล</span></strong></td><td>Spirit/Con</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="en">ATK→Heal cycle</span><span class="th">วงจร ATK→ฮีล</span></td></tr>
 </table>
 
-<h3 class="ss">📐 New PVP Formulas (Lv.79)</h3>
-<div class="fb"><span class="l">🎯 HIT RATE (PVP)</span>Hit Rate = (2.3804 × X + 5744) / (X + 6046)    where X = Accuracy − Block
-→ Remaining Acc ≥ 219 for reliable burst</div>
-<div class="fb"><span class="l">⚡ CRIT RATE (PVP)</span>Crit Rate = (1.1445 × X + 80) / (X + 1602.5)    where X = Crit − Crit Resist
-→ Sweet spot: X ≈ 1,000</div>
-<div class="fb"><span class="l">🛡️ DEF DAMAGE REDUCTION (PVP)</span>DEF DR = Remaining DEF / (Remaining DEF + 10,743)
-Ele DR = Remaining Ele Resist / (Remaining Ele Resist + 2,016)</div>
+<h3 class="ss">📐 <span class="en">New PVP Formulas (Lv.79)</span><span class="th">สูตร PVP ใหม่ (เลเวล 79)</span></h3>
+<div class="fb"><span class="l">🎯 <span class="en">HIT RATE (PVP)</span><span class="th">อัตราโจมตีโดน (PVP)</span></span><span class="en">Hit Rate = (2.3804 × X + 5744) / (X + 6046)    where X = Accuracy − Block</span><span class="th">อัตราโดน = (2.3804 × X + 5744) / (X + 6046)    โดย X = ค่าแม่นยำ − บล็อก</span>
+<span class="en">→ Remaining Acc ≥ 219 for reliable burst</span><span class="th">→ ค่าแม่นยำเหลือ ≥ 219 เพื่อบุกได้มั่นใจ</span></div>
+<div class="fb"><span class="l">⚡ <span class="en">CRIT RATE (PVP)</span><span class="th">อัตราคริ (PVP)</span></span><span class="en">Crit Rate = (1.1445 × X + 80) / (X + 1602.5)    where X = Crit − Crit Resist</span><span class="th">อัตราคริ = (1.1445 × X + 80) / (X + 1602.5)    โดย X = คริ − ต้านคริ</span>
+<span class="en">→ Sweet spot: X ≈ 1,000</span><span class="th">→ จุดที่ดี: X ≈ 1,000</span></div>
+<div class="fb"><span class="l">🛡️ <span class="en">DEF DAMAGE REDUCTION (PVP)</span><span class="th">ลดดาเมจจาก DEF (PVP)</span></span><span class="en">DEF DR = Remaining DEF / (Remaining DEF + 10,743)</span><span class="th">ลด DMG จาก DEF = DEF เหลือ / (DEF เหลือ + 10,743)</span>
+<span class="en">Ele DR = Remaining Ele Resist / (Remaining Ele Resist + 2,016)</span><span class="th">ลด DMG จากต้านธาตุ = ต้านธาตุเหลือ / (ต้านธาตุเหลือ + 2,016)</span></div>
 </div></div>
 
 <!-- ==================== PATCH 2.2 ==================== -->
 <div class="sec" id="p22">
-<div class="sh" onclick="T(this)"><h2><span class="pt p22">2.2–2.3</span> Nine Provinces 九州飞光 <span class="mode pve">PVE</span></h2><span class="a">▼</span></div>
+<div class="sh" onclick="T(this)"><h2><span class="pt p22">2.2–2.3</span> <span class="en">Nine Provinces Flying Light (九州飞光)</span><span class="th">แสงเหินเก้าแผ่นดิน (九州飞光)</span> <span class="mode pve">PVE</span></h2><span class="a">▼</span></div>
 <div class="sb">
-<p><strong>Season 2 Late</strong> — Hero Boss 6 prep. Technique Restraint added. Pet Breeding system.</p>
+<p><strong><span class="en">Season 2 Late</span><span class="th">ซีซัน 2 ช่วงปลาย</span></strong> — <span class="en">Hero Boss 6 prep. Technique Restraint added. Pet Breeding system.</span><span class="th">เตรียมฮีโร่บอส 6. เพิ่มระบบข่มเทคนิค. ระบบเพาะพันธุ์สัตว์เลี้ยง.</span></p>
 
-<h3 class="ss">🎯 Universal PVE Thresholds (2.2 Late)</h3>
+<h3 class="ss">🎯 <span class="en">Universal PVE Thresholds (2.2 Late)</span><span class="th">เกณฑ์สเตตัส PVE สากล (2.2 ปลาย)</span></h3>
 <table>
-<tr><th>Stat</th><th>Minimum</th><th>Optimal</th><th>Cap / Warning</th></tr>
-<tr><td>Full Accuracy</td><td>4,900</td><td><strong>5,100</strong></td><td>⚠️ Do NOT exceed 5,110 (wasted)</td></tr>
-<tr><td>In-Dungeon Accuracy</td><td>4,500</td><td><strong>4,900</strong></td><td>With Xuanji buff +215</td></tr>
-<tr><td>Crit</td><td>6,500</td><td><strong>7,200–7,500</strong></td><td>Higher = better (no soft cap issue)</td></tr>
-<tr><td>ATK</td><td>28,000</td><td><strong>35,000+</strong></td><td>Include Restraint pool</td></tr>
-<tr><td>DEF Pen</td><td>18,000</td><td><strong>22,000+</strong></td><td>Stable scaling, not dominant</td></tr>
-<tr><td>Ele ATK</td><td>8,000</td><td><strong>12,000+</strong></td><td>Ele Ignore ≥ 4,300 needed</td></tr>
+<tr><th><span class="en">Stat</span><span class="th">สเตตัส</span></th><th><span class="en">Minimum</span><span class="th">ขั้นต่ำ</span></th><th><span class="en">Optimal</span><span class="th">ค่าเหมาะสม</span></th><th><span class="en">Cap / Warning</span><span class="th">จุดจำกัด / คำเตือน</span></th></tr>
+<tr><td><span class="en">Full Accuracy</span><span class="th">ค่าแม่นยำรวม</span></td><td>4,900</td><td><strong>5,100</strong></td><td><span class="en">⚠️ Do NOT exceed 5,110 (wasted)</span><span class="th">⚠️ อย่าเกิน 5,110 (เสียเปล่า)</span></td></tr>
+<tr><td><span class="en">In-Dungeon Accuracy</span><span class="th">ค่าแม่นยำในดัน</span></td><td>4,500</td><td><strong>4,900</strong></td><td><span class="en">With Mystic (玄机) buff +215</span><span class="th">มีบัฟปริศนา (玄机) +215</span></td></tr>
+<tr><td><span class="en">Crit (会心)</span><span class="th">คริติคอล (会心)</span></td><td>6,500</td><td><strong>7,200–7,500</strong></td><td><span class="en">Higher = better (no soft cap issue)</span><span class="th">สูงกว่า = ดีกว่า (ไม่มีปัญหา soft cap)</span></td></tr>
+<tr><td><span class="en">ATK (攻击)</span><span class="th">พลังโจมตี (攻击)</span></td><td>28,000</td><td><strong>35,000+</strong></td><td><span class="en">Include Restraint pool</span><span class="th">รวมพูลข่มบอส</span></td></tr>
+<tr><td><span class="en">DEF Pen (破防)</span><span class="th">ทะลุเกราะ (破防)</span></td><td>18,000</td><td><strong>22,000+</strong></td><td><span class="en">Stable scaling, not dominant</span><span class="th">สเกลคงที่ ไม่เด่น</span></td></tr>
+<tr><td><span class="en">Ele ATK (元素攻击)</span><span class="th">โจมตีธาตุ (元素攻击)</span></td><td>8,000</td><td><strong>12,000+</strong></td><td><span class="en">Ele Ignore (元素无视) ≥ 4,300 needed</span><span class="th">เพิกเฉยธาตุ (元素无视) ≥ 4,300 ที่ต้องการ</span></td></tr>
 </table>
 
-<h3 class="ss">🗡️ Per-Class PVE Build (2.2–2.3 Late Season)</h3>
+<h3 class="ss">🗡️ <span class="en">Per-Class PVE Build (2.2–2.3 Late Season)</span><span class="th">บิลด์ PVE แต่ละอาชีพ (2.2–2.3 ปลายซีซัน)</span></h3>
 <table>
-<tr><th>Class</th><th>Stats</th><th>Full Acc</th><th>Dung. Acc</th><th>Crit</th><th>Ele Ignore</th><th>Build Flow</th><th>Equipment</th></tr>
-<tr><td class="left"><strong>Xuehe</strong></td><td>STR/Agi</td><td>5,100</td><td>4,900</td><td>7,500</td><td>—</td><td>ATK+Restraint</td><td>7-Unique endgame</td></tr>
-<tr><td class="left"><strong>Xuanji</strong></td><td>Agi/STR</td><td>≤5,110</td><td>4,900</td><td>7,500</td><td>4,389</td><td>Ele flow</td><td>7-Unique</td></tr>
-<tr><td class="left"><strong>Longyin</strong></td><td>Spirit/Agi</td><td>4,910</td><td>4,700</td><td>7,200</td><td>—</td><td>ATK+Restraint</td><td>7-Unique</td></tr>
-<tr><td class="left"><strong>Shenxiang</strong></td><td>Spirit or Agi</td><td>≤5,110</td><td>4,800</td><td>7,500</td><td>4,300</td><td>Ele flow</td><td>7-Unique</td></tr>
-<tr><td class="left"><strong>Suimeng</strong></td><td>Agi/STR</td><td>≤5,110</td><td>4,896</td><td>7,500</td><td>4,469</td><td>Ele flow</td><td>7-Unique</td></tr>
-<tr><td class="left"><strong>Jiuling</strong></td><td>Spirit/Agi</td><td>5,111</td><td>4,900</td><td>7,200</td><td>—</td><td>ATK+Restraint/Ele</td><td>7-Unique</td></tr>
-<tr><td class="left"><strong>Tianwen (素问DPS)</strong></td><td>Agi/Spirit</td><td>—</td><td>4,896</td><td>7,500</td><td>4,389</td><td>Ele flow</td><td>7-Unique</td></tr>
-<tr><td class="left"><strong>Suxin (素问Heal)</strong></td><td>Spirit/Con</td><td>—</td><td>—</td><td>—</td><td>—</td><td>3G3W heal</td><td>Heal-unique set</td></tr>
-<tr><td class="left"><strong>Tieyi</strong></td><td>STR/Agi</td><td>5,110</td><td>4,900</td><td>7,200</td><td>—</td><td>7-Unique</td><td>7-Unique</td></tr>
+<tr><th><span class="en">Class</span><span class="th">อาชีพ</span></th><th><span class="en">Stats</span><span class="th">สเตตัส</span></th><th><span class="en">Full Acc</span><span class="th">แม่นรวม</span></th><th><span class="en">Dung. Acc</span><span class="th">แม่นในดัน</span></th><th><span class="en">Crit (会心)</span><span class="th">คริ (会心)</span></th><th><span class="en">Ele Ignore (元素无视)</span><span class="th">เพิกเฉยธาตุ (元素无视)</span></th><th><span class="en">Build Flow</span><span class="th">แนวทางบิลด์</span></th><th><span class="en">Equipment</span><span class="th">อุปกรณ์</span></th></tr>
+<tr><td class="left"><strong><span class="en">Blood River (血河)</span><span class="th">สายเลือด (血河)</span></strong></td><td>STR/Agi</td><td>5,100</td><td>4,900</td><td>7,500</td><td>—</td><td><span class="en">ATK core</span><span class="th">เน้น ATK</span></td><td><span class="en">Mixed Crafted (打造)</span><span class="th">คราฟต์ผสม (打造)</span></td></tr>
+<tr><td class="left"><strong><span class="en">Shattered Dreams (碎梦)</span><span class="th">ฝันสลาย (碎梦)</span></strong></td><td>STR/Agi</td><td>5,100</td><td>4,900</td><td>7,500</td><td>4,300</td><td><span class="en">Ele/ATK hybrid</span><span class="th">ธาตุ/โจมตีผสม</span></td><td><span class="en">Crafted + Raid</span><span class="th">คราฟต์ + เรด</span></td></tr>
+<tr><td class="left"><strong><span class="en">Divine Visage (神相)</span><span class="th">เทพพยากรณ์ (神相)</span></strong></td><td>Spirit/Agi</td><td>5,100</td><td>4,900</td><td>7,200</td><td>4,500</td><td><span class="en">Full Ele</span><span class="th">ธาตุเต็ม</span></td><td><span class="en">Crafted + Raid</span><span class="th">คราฟต์ + เรด</span></td></tr>
+<tr><td class="left"><strong><span class="en">Dragon's Roar (龙吟)</span><span class="th">มังกรคำราม (龙吟)</span></strong></td><td>Agi/Spirit</td><td>5,000</td><td>4,700</td><td>7,000</td><td>4,300</td><td><span class="en">DEF Pen + DoT</span><span class="th">ทะลุเกราะ + DoT</span></td><td><span class="en">Crafted</span><span class="th">คราฟต์ (打造)</span></td></tr>
+<tr><td class="left"><strong><span class="en">Nine Spirits (九灵)</span><span class="th">เก้าวิญญาณ (九灵)</span></strong></td><td>Agi/Spirit</td><td>5,100</td><td>4,900</td><td>7,300</td><td>4,500</td><td><span class="en">Pet + Ele</span><span class="th">สัตว์เลี้ยง + ธาตุ</span></td><td><span class="en">Crafted + Raid</span><span class="th">คราฟต์ + เรด</span></td></tr>
+<tr><td class="left"><strong><span class="en">Mystic (玄机)</span><span class="th">ปริศนา (玄机)</span></strong></td><td>Spirit/Agi</td><td>5,100</td><td>4,900</td><td>7,200</td><td>4,500</td><td><span class="en">Wind Ele dominant</span><span class="th">ธาตุลมเด่น</span></td><td><span class="en">Crafted + Raid</span><span class="th">คราฟต์ + เรด</span></td></tr>
+<tr><td class="left"><strong><span class="en">Iron Clad (铁衣) DPS</span><span class="th">เกราะเหล็ก (铁衣) DPS</span></strong></td><td>Agi/STR</td><td>5,000</td><td>4,700</td><td>7,000</td><td>4,000</td><td><span class="en">ATK core</span><span class="th">เน้น ATK</span></td><td><span class="en">Crafted</span><span class="th">คราฟต์ (打造)</span></td></tr>
+<tr><td class="left"><strong><span class="en">Iron Clad (铁衣) Tank</span><span class="th">เกราะเหล็ก (铁衣) แทงค์</span></strong></td><td>End/Con</td><td>4,500</td><td>4,200</td><td>—</td><td>—</td><td><span class="en">DEF + Earth + HP (气血)</span><span class="th">ป้องกัน + ดิน + พลังชีวิต (气血)</span></td><td><span class="en">Full Crafted Tank</span><span class="th">คราฟต์แทงค์เต็ม</span></td></tr>
+<tr><td class="left"><strong><span class="en">Plain Questions (素问) DPS</span><span class="th">สุเหวิน (素问) DPS</span></strong></td><td>Agi/Spirit</td><td>5,100</td><td>4,900</td><td>7,200</td><td>4,500</td><td><span class="en">Ele flow</span><span class="th">บิลด์ธาตุ</span></td><td><span class="en">Crafted + Raid</span><span class="th">คราฟต์ + เรด</span></td></tr>
+<tr><td class="left"><strong><span class="en">Plain Questions (素问) Heal</span><span class="th">สุเหวิน (素问) ฮีล</span></strong></td><td>Spirit/Con</td><td>4,000</td><td>—</td><td>—</td><td>—</td><td><span class="en">Spirit + Heal power</span><span class="th">Spirit + พลังฮีล</span></td><td><span class="en">Heal set</span><span class="th">ชุดฮีล</span></td></tr>
+<tr><td class="left"><strong><span class="en">Azure Tide (沧澜)</span><span class="th">คลื่นสีคราม (沧澜)</span></strong></td><td>Spirit/Agi</td><td>5,100</td><td>4,900</td><td>7,200</td><td>4,500</td><td><span class="en">Water Ele</span><span class="th">ธาตุน้ำ</span></td><td><span class="en">Crafted + Raid</span><span class="th">คราฟต์ + เรด</span></td></tr>
 </table>
 
-<div class="tip"><strong>💡 สรุป 2.2:</strong> Accuracy มี HARD CAP ที่ ~5,110 (เกินแล้วเสียเปล่า!) ดังนั้นอย่าลง Accuracy เกิน → แล้วเท Crit ให้ได้ 7,200+ จากนั้นค่อย stack Ele/ATK ตามอาชีพ</div>
+<div class="tip"><strong>💡 <span class="en">Tip:</span><span class="th">เคล็ดลับ:</span></strong> <span class="en">Do NOT over-stack Accuracy past 5,110 — it is completely wasted. Ele Ignore (元素无视) of 4,300+ is needed to bypass boss Ele Resist (元素抗性). Pet Breeding adds significant hidden stats.</span><span class="th">อย่าสแต็คค่าแม่นยำเกิน 5,110 — จะเสียเปล่าทั้งหมด เพิกเฉยธาตุ (元素无视) 4,300+ จำเป็นเพื่อเจาะต้านธาตุบอส (元素抗性). ระบบเพาะพันธุ์สัตว์เลี้ยงเพิ่มสเตตัสซ่อนอย่างมาก</span></div>
 </div></div>
 
 <!-- ==================== PATCH 3.0 ==================== -->
-<div class="sec" id="p30">
-<div class="sh" onclick="T(this)"><h2><span class="pt p3">3.0–3.1</span> Song of Sand & Sea 沙与海之歌 <span class="mode pve">PVE</span></h2><span class="a">▼</span></div>
+<div class="sec" id="p3">
+<div class="sh" onclick="T(this)"><h2><span class="pt p3">3.0–3.1</span> <span class="en">Song of Sand &amp; Sea (沙与海之歌)</span><span class="th">เพลงทรายและทะเล (沙与海之歌)</span> <span class="mode pve">PVE</span></h2><span class="a">▼</span></div>
 <div class="sb">
-<p><strong>🔄 SEASON 3 RESET!</strong> Lv.89. Canlan (沧澜/Water) class added. Full reset again.</p>
+<p><strong><span class="en">Season 3 — Current</span><span class="th">ซีซัน 3 — ปัจจุบัน</span></strong> — <span class="en">Lv.89 cap. New map. Hero Boss 7+. Affix (词条) reforging. All-Element (全元素) meta.</span><span class="th">แคปเลเวล 89. แผนที่ใหม่. ฮีโร่บอส 7+. รีฟอร์จคำนำหน้า (词条). เมตาธาตุรวม (全元素).</span></p>
 
-<h3 class="ss">🎯 Early Season 3 PVE Thresholds</h3>
+<h3 class="ss">🎯 <span class="en">Universal PVE Thresholds (3.0+)</span><span class="th">เกณฑ์สเตตัส PVE สากล (3.0+)</span></h3>
 <table>
-<tr><th>Stat</th><th>Week 1</th><th>Week 4</th><th>Mid Season (est.)</th></tr>
-<tr><td>Accuracy</td><td>3,500</td><td>5,500</td><td>8,000+</td></tr>
-<tr><td>Crit</td><td>4,000</td><td>6,500</td><td>9,000+</td></tr>
-<tr><td>ATK</td><td>12,000</td><td>25,000</td><td>40,000+</td></tr>
-<tr><td>DEF Pen</td><td>8,000</td><td>16,000</td><td>25,000+</td></tr>
-<tr><td>Ele ATK</td><td>3,000</td><td>8,000</td><td>15,000+</td></tr>
-<tr><td>Gear Score</td><td>≥ 127</td><td>≥ 133</td><td>≥ 137+</td></tr>
+<tr><th><span class="en">Stat</span><span class="th">สเตตัส</span></th><th><span class="en">Minimum</span><span class="th">ขั้นต่ำ</span></th><th><span class="en">Optimal</span><span class="th">ค่าเหมาะสม</span></th><th><span class="en">Cap / Warning</span><span class="th">จุดจำกัด / คำเตือน</span></th></tr>
+<tr><td><span class="en">Accuracy (命中)</span><span class="th">ค่าแม่นยำ (命中)</span></td><td>6,500</td><td><strong>7,200</strong></td><td><span class="en">Boss 7 needs 7,000+ base</span><span class="th">บอส 7 ต้องการ 7,000+ พื้นฐาน</span></td></tr>
+<tr><td><span class="en">Crit (会心)</span><span class="th">คริติคอล (会心)</span></td><td>9,000</td><td><strong>10,500</strong></td><td><span class="en">Crit DMG (会心伤害) affix now valuable</span><span class="th">คำนำหน้าความเสียหายคริ (会心伤害) มีค่าแล้ว</span></td></tr>
+<tr><td><span class="en">ATK (攻击)</span><span class="th">พลังโจมตี (攻击)</span></td><td>50,000</td><td><strong>65,000+</strong></td><td><span class="en">All-Element (全元素) builds dominate</span><span class="th">บิลด์ธาตุรวม (全元素) ครอง</span></td></tr>
+<tr><td><span class="en">DEF Pen (破防)</span><span class="th">ทะลุเกราะ (破防)</span></td><td>30,000</td><td><strong>38,000+</strong></td><td><span class="en">Boss DEF very high — still needed</span><span class="th">DEF บอสสูงมาก — ยังจำเป็น</span></td></tr>
+<tr><td><span class="en">Ele ATK (元素攻击)</span><span class="th">โจมตีธาตุ (元素攻击)</span></td><td>18,000</td><td><strong>25,000+</strong></td><td><span class="en">All-Element (全元素) preferred over single</span><span class="th">ธาตุรวม (全元素) ดีกว่าธาตุเดียว</span></td></tr>
+<tr><td><span class="en">Ele Ignore (元素无视)</span><span class="th">เพิกเฉยธาตุ (元素无视)</span></td><td>6,000</td><td><strong>8,000+</strong></td><td><span class="en">Critical for Hero 7+</span><span class="th">สำคัญมากสำหรับฮีโร่ 7+</span></td></tr>
+<tr><td><span class="en">Boss Restraint (首领克制)</span><span class="th">ค่าข่มบอส (首领克制)</span></td><td>12,000</td><td><strong>18,000+</strong></td><td><span class="en">Biggest single DPS multiplier</span><span class="th">ตัวคูณ DPS เดี่ยวสูงสุด</span></td></tr>
 </table>
 
-<h3 class="ss">🗡️ Per-Class PVE Build (3.0 Early-Mid)</h3>
+<h3 class="ss">🗡️ <span class="en">Per-Class PVE Build (3.0–3.1 Current)</span><span class="th">บิลด์ PVE แต่ละอาชีพ (3.0–3.1 ปัจจุบัน)</span></h3>
 <table>
-<tr><th>Class</th><th>Role</th><th>Stats</th><th>Priority Order</th><th>Inner Cycle</th><th>Notes</th></tr>
-<tr><td class="left"><strong>Suimeng</strong></td><td><span class="rt dps">DPS</span></td><td>STR/Agi</td><td>Acc threshold → Crit threshold → Ele ATK → ATK</td><td>3G3F (new pool)</td><td>Ele flow; burst still dominant</td></tr>
-<tr><td class="left"><strong>Shenxiang</strong></td><td><span class="rt dps">DPS</span></td><td>Spirit/Agi</td><td>Acc → Crit → Ele → ATK</td><td>3G3F</td><td>万剑诀 / 法天 still strong</td></tr>
-<tr><td class="left"><strong>Xuehe</strong></td><td><span class="rt dps">DPS</span></td><td>STR/Agi</td><td>Acc → Crit → ATK → Ele</td><td>3G3F</td><td>ATK flow slightly better early</td></tr>
-<tr><td class="left"><strong>Longyin</strong></td><td><span class="rt dps">DPS</span></td><td>Agi/Spirit</td><td>Acc → Crit → DEF Pen → ATK</td><td>3F3W</td><td>DEF Pen returns early season!</td></tr>
-<tr><td class="left"><strong>Jiuling</strong></td><td><span class="rt dps">DPS</span></td><td>Agi/Spirit</td><td>Acc → Crit → ATK → Ele</td><td>3G3F</td><td>Burst > 50%, Duanjinge mandatory</td></tr>
-<tr><td class="left"><strong>Xuanji</strong></td><td><span class="rt dps">DPS</span></td><td>Spirit/Agi</td><td>Acc → Crit → Ele → ATK</td><td>3G3F (Wind)</td><td>Sustained DPS, best AoE class</td></tr>
-<tr><td class="left"><strong>Canlan 沧澜</strong></td><td><span class="rt dps">DPS</span></td><td>STR/Agi (TBD)</td><td>Acc → Crit → ATK → Ele</td><td>3Water3G (TBD)</td><td>NEW! Dual-stance Water DPS</td></tr>
-<tr><td class="left"><strong>Tieyi DPS</strong></td><td><span class="rt dps">DPS</span></td><td>Agi/STR</td><td>Acc → Crit → ATK → Ele</td><td>3G3W</td><td>Frontline hybrid still viable</td></tr>
-<tr><td class="left"><strong>Tieyi Tank</strong></td><td><span class="rt tnk">Tank</span></td><td>End/Con</td><td>DEF → Qi Shield → Block → HP</td><td>3W3Earth</td><td>Tanking simplified in S3</td></tr>
-<tr><td class="left"><strong>Suwen DPS</strong></td><td><span class="rt dps">DPS</span></td><td>Agi/Spirit</td><td>Acc → Crit → Ele → ATK</td><td>3G3W</td><td>Single-target dominance</td></tr>
-<tr><td class="left"><strong>Suwen Heal</strong></td><td><span class="rt hea">Heal</span></td><td>Spirit/Con</td><td>Spirit → ATK → HP → Crit</td><td>3G3W</td><td>3.0 added new healing inner skills</td></tr>
+<tr><th><span class="en">Class</span><span class="th">อาชีพ</span></th><th><span class="en">Stats</span><span class="th">สเตตัส</span></th><th><span class="en">Acc (命中)</span><span class="th">แม่นยำ (命中)</span></th><th><span class="en">Crit (会心)</span><span class="th">คริ (会心)</span></th><th><span class="en">ATK (攻击)</span><span class="th">โจมตี (攻击)</span></th><th><span class="en">Ele ATK (元素攻击)</span><span class="th">โจมตีธาตุ (元素攻击)</span></th><th><span class="en">Ele Ignore (元素无视)</span><span class="th">เพิกเฉยธาตุ (元素无视)</span></th><th><span class="en">Build Flow</span><span class="th">แนวทางบิลด์</span></th></tr>
+<tr><td class="left"><strong><span class="en">Shattered Dreams (碎梦)</span><span class="th">ฝันสลาย (碎梦)</span></strong></td><td>STR/Agi</td><td>7,200</td><td>10,500</td><td>65K</td><td>25K</td><td>8K</td><td><span class="en">All-Ele (全元素) + ATK</span><span class="th">ธาตุรวม (全元素) + โจมตี</span></td></tr>
+<tr><td class="left"><strong><span class="en">Divine Visage (神相)</span><span class="th">เทพพยากรณ์ (神相)</span></strong></td><td>Spirit/Agi</td><td>7,200</td><td>10,500</td><td>65K</td><td>28K</td><td>8.5K</td><td><span class="en">Full Ele → All-Ele (全元素)</span><span class="th">ธาตุเต็ม → ธาตุรวม (全元素)</span></td></tr>
+<tr><td class="left"><strong><span class="en">Blood River (血河)</span><span class="th">สายเลือด (血河)</span></strong></td><td>STR/Agi</td><td>7,200</td><td>10,500</td><td>65K</td><td>25K</td><td>8K</td><td><span class="en">All-Ele (全元素) hybrid</span><span class="th">ธาตุรวม (全元素) ผสม</span></td></tr>
+<tr><td class="left"><strong><span class="en">Dragon's Roar (龙吟)</span><span class="th">มังกรคำราม (龙吟)</span></strong></td><td>Agi/Spirit</td><td>7,000</td><td>10,000</td><td>60K</td><td>22K</td><td>7.5K</td><td><span class="en">DEF Pen + Poison DoT</span><span class="th">ทะลุเกราะ + DoT พิษ</span></td></tr>
+<tr><td class="left"><strong><span class="en">Nine Spirits (九灵)</span><span class="th">เก้าวิญญาณ (九灵)</span></strong></td><td>Agi/Spirit</td><td>7,200</td><td>10,500</td><td>63K</td><td>26K</td><td>8K</td><td><span class="en">Pet + All-Ele (全元素)</span><span class="th">สัตว์เลี้ยง + ธาตุรวม (全元素)</span></td></tr>
+<tr><td class="left"><strong><span class="en">Mystic (玄机)</span><span class="th">ปริศนา (玄机)</span></strong></td><td>Spirit/Agi</td><td>7,200</td><td>10,500</td><td>65K</td><td>28K</td><td>8.5K</td><td><span class="en">Wind All-Ele (全元素)</span><span class="th">ลม + ธาตุรวม (全元素)</span></td></tr>
+<tr><td class="left"><strong><span class="en">Iron Clad (铁衣) DPS</span><span class="th">เกราะเหล็ก (铁衣) DPS</span></strong></td><td>Agi/STR</td><td>7,000</td><td>10,000</td><td>60K</td><td>22K</td><td>7.5K</td><td><span class="en">ATK core + Ele sub</span><span class="th">เน้น ATK + ธาตุเสริม</span></td></tr>
+<tr><td class="left"><strong><span class="en">Iron Clad (铁衣) Tank</span><span class="th">เกราะเหล็ก (铁衣) แทงค์</span></strong></td><td>End/Con</td><td>6,500</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="en">DEF + HP (气血) + Shield Break (破盾) resist</span><span class="th">ป้องกัน + ชีวิต (气血) + ต้านทำลายโล่ (破盾)</span></td></tr>
+<tr><td class="left"><strong><span class="en">Plain Questions (素问) DPS</span><span class="th">สุเหวิน (素问) DPS</span></strong></td><td>Agi/Spirit</td><td>7,200</td><td>10,500</td><td>63K</td><td>26K</td><td>8K</td><td><span class="en">All-Ele (全元素)</span><span class="th">ธาตุรวม (全元素)</span></td></tr>
+<tr><td class="left"><strong><span class="en">Plain Questions (素问) Heal</span><span class="th">สุเหวิน (素问) ฮีล</span></strong></td><td>Spirit/Con</td><td>6,000</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="en">Spirit stack + heal affix (词条)</span><span class="th">สแต็ค Spirit + คำนำหน้าฮีล (词条)</span></td></tr>
+<tr><td class="left"><strong><span class="en">Azure Tide (沧澜)</span><span class="th">คลื่นสีคราม (沧澜)</span></strong></td><td>Spirit/Agi</td><td>7,200</td><td>10,500</td><td>65K</td><td>28K</td><td>8.5K</td><td><span class="en">Water All-Ele (全元素)</span><span class="th">น้ำ + ธาตุรวม (全元素)</span></td></tr>
 </table>
+
+<div class="tip"><strong>💡 <span class="en">Tip:</span><span class="th">เคล็ดลับ:</span></strong> <span class="en">Patch 3.x is the All-Element (全元素) era. Most classes now benefit more from All-Element builds than single-element. Affix (词条) reforging is the most cost-efficient upgrade. Boss Restraint (首领克制) is now the biggest single DPS multiplier — do NOT neglect it.</span><span class="th">แพทช์ 3.x คือยุคธาตุรวม (全元素). อาชีพส่วนใหญ่ได้ประโยชน์จากบิลด์ธาตุรวมมากกว่าธาตุเดียว. รีฟอร์จคำนำหน้า (词条) เป็นการอัพเกรดที่คุ้มค่าที่สุด. ค่าข่มบอส (首领克制) เป็นตัวคูณ DPS เดี่ยวสูงสุดแล้วตอนนี้ — อย่าละเลย</span></div>
 </div></div>
 
 <!-- ==================== PVP ALL PATCHES ==================== -->
 <div class="sec" id="pvp">
-<div class="sh" onclick="T(this)"><h2>⚔️ PVP Guild League (帮会联赛) — All Patches <span class="mode pvp">PVP</span></h2><span class="a">▼</span></div>
+<div class="sh" onclick="T(this)"><h2>⚔️ <span class="en">PVP Guild League (帮会联赛) — All Patches</span><span class="th">PVP ลีกสำนัก (帮会联赛) — ทุกแพทช์</span> <span class="mode pvp">PVP</span></h2><span class="a">▼</span></div>
 <div class="sb">
 
-<h4 class="sub">Season 1 (1.2–1.3) PVP Panel Targets — DPS Classes</h4>
+<h4 class="sub"><span class="en">Season 1 (1.2–1.3) PVP Panel Targets</span><span class="th">เป้าหมายแผงสเตตัส PVP ซีซัน 1 (1.2–1.3)</span></h4>
 <table>
-<tr><th>Stat</th><th>DPS Target</th><th>Tank/Healer Target</th><th>Notes</th></tr>
-<tr><td>ATK</td><td>4,000–5,000</td><td>2,500–3,500</td><td>Higher = more burst</td></tr>
-<tr><td>DEF Pen</td><td>1,500–2,300</td><td>800–1,200</td><td>Still king in S1 PVP</td></tr>
-<tr><td>Crit</td><td>1,500–2,000</td><td>1,000–1,500</td><td>With pot → ~40% crit rate</td></tr>
-<tr><td>Crit DMG</td><td>≥ 175%</td><td>—</td><td>Default 150%, craft adds 25%+</td></tr>
-<tr><td>Accuracy</td><td>900–1,200</td><td>—</td><td>Need > opponent Block</td></tr>
-<tr><td>DEF</td><td>3,000–4,000</td><td>4,500–6,000</td><td>Remaining DEF ≥ 3,000 for tank</td></tr>
-<tr><td>Qi Shield</td><td>800–1,200</td><td>2,000–3,000</td><td>Directly subtracts from enemy ATK</td></tr>
-<tr><td>Shield Break</td><td>350–450</td><td>—</td><td>Extreme: 900+ for Suimeng</td></tr>
-<tr><td>Crit Resist</td><td>1,500–2,000</td><td>2,000–2,500</td><td>Reduces opponent's crit rate</td></tr>
-<tr><td>Ele Resist</td><td>800–1,200</td><td>1,500–2,000</td><td>Reduces Ele dmg</td></tr>
-<tr><td>Block</td><td>—</td><td>2,500–3,500</td><td>Tank stat</td></tr>
+<tr><th><span class="en">Stat</span><span class="th">สเตตัส</span></th><th><span class="en">DPS Target</span><span class="th">เป้า DPS</span></th><th><span class="en">Tank/Healer Target</span><span class="th">เป้าแทงค์/ฮีล</span></th><th><span class="en">Notes</span><span class="th">หมายเหตุ</span></th></tr>
+<tr><td><span class="en">ATK (攻击)</span><span class="th">โจมตี (攻击)</span></td><td>4,000–5,000</td><td>2,500–3,500</td><td><span class="en">Higher = more burst</span><span class="th">สูงกว่า = บุกแรงกว่า</span></td></tr>
+<tr><td><span class="en">DEF Pen (破防)</span><span class="th">ทะลุเกราะ (破防)</span></td><td>1,500–2,300</td><td>800–1,200</td><td><span class="en">Still king in S1 PVP</span><span class="th">ยังเป็นราชาใน S1 PVP</span></td></tr>
+<tr><td><span class="en">Crit (会心)</span><span class="th">คริติคอล (会心)</span></td><td>1,500–2,000</td><td>1,000–1,500</td><td><span class="en">With pot → ~40% crit rate</span><span class="th">กินยา → ~40% อัตราคริ</span></td></tr>
+<tr><td><span class="en">Crit DMG (会心伤害)</span><span class="th">ความเสียหายคริ (会心伤害)</span></td><td>≥ 175%</td><td>—</td><td><span class="en">Default 150%, craft adds 25%+</span><span class="th">ค่าเริ่มต้น 150%, คราฟต์เพิ่ม 25%+</span></td></tr>
+<tr><td><span class="en">Accuracy (命中)</span><span class="th">ค่าแม่นยำ (命中)</span></td><td>900–1,200</td><td>—</td><td><span class="en">Need > opponent Block (格挡)</span><span class="th">ต้อง > บล็อกฝ่ายตรงข้าม (格挡)</span></td></tr>
+<tr><td><span class="en">DEF (防御)</span><span class="th">ป้องกัน (防御)</span></td><td>3,000–4,000</td><td>4,500–6,000</td><td><span class="en">Remaining DEF ≥ 3,000 for tank</span><span class="th">DEF เหลือ ≥ 3,000 สำหรับแทงค์</span></td></tr>
+<tr><td><span class="en">Qi Shield (气盾)</span><span class="th">โล่ชี่ (气盾)</span></td><td>800–1,200</td><td>2,000–3,000</td><td><span class="en">Directly subtracts from enemy ATK</span><span class="th">ลบจากโจมตีศัตรูโดยตรง</span></td></tr>
+<tr><td><span class="en">Shield Break (破盾)</span><span class="th">ทำลายโล่ (破盾)</span></td><td>350–450</td><td>—</td><td><span class="en">Extreme: 900+ for Shattered Dreams (碎梦)</span><span class="th">สุด: 900+ สำหรับฝันสลาย (碎梦)</span></td></tr>
+<tr><td><span class="en">Crit Resist (会心抗性)</span><span class="th">ต้านคริ (会心抗性)</span></td><td>1,500–2,000</td><td>2,000–2,500</td><td><span class="en">Reduces opponent's crit rate</span><span class="th">ลดอัตราคริฝ่ายตรงข้าม</span></td></tr>
+<tr><td><span class="en">Ele Resist (元素抗性)</span><span class="th">ต้านธาตุ (元素抗性)</span></td><td>800–1,200</td><td>1,500–2,000</td><td><span class="en">Reduces Ele dmg</span><span class="th">ลดดาเมจธาตุ</span></td></tr>
+<tr><td><span class="en">Block (格挡)</span><span class="th">บล็อก (格挡)</span></td><td>—</td><td>2,500–3,500</td><td><span class="en">Tank stat</span><span class="th">สเตตัสแทงค์</span></td></tr>
 </table>
 
-<h4 class="sub">Season 2 (2.0–2.3) PVP Panel Targets — DPS Classes</h4>
+<h4 class="sub"><span class="en">Season 2 (2.0–2.3) PVP Panel Targets</span><span class="th">เป้าหมายแผงสเตตัส PVP ซีซัน 2 (2.0–2.3)</span></h4>
 <table>
-<tr><th>Stat</th><th>DPS</th><th>Front-DPS</th><th>Tank</th><th>Healer</th></tr>
-<tr><td>ATK</td><td>16,000</td><td>14,000</td><td>—</td><td>12,000</td></tr>
-<tr><td>DEF Pen</td><td>12,500</td><td>11,000</td><td>—</td><td>—</td></tr>
-<tr><td>Ele ATK</td><td>5,000</td><td>4,000</td><td>—</td><td>—</td></tr>
-<tr><td>Ele Ignore</td><td>1,600</td><td>1,200</td><td>—</td><td>—</td></tr>
-<tr><td>Crit</td><td>6,000</td><td>5,000</td><td>—</td><td>—</td></tr>
-<tr><td>Crit DMG</td><td>190%</td><td>180%</td><td>—</td><td>—</td></tr>
-<tr><td>Shield Break</td><td>350</td><td>250</td><td>—</td><td>—</td></tr>
-<tr><td>Faction Restraint</td><td>8,300</td><td>7,000</td><td>—</td><td>—</td></tr>
-<tr><td>DEF</td><td>13,000</td><td>15,000</td><td>18,000+</td><td>14,000</td></tr>
-<tr><td>Qi Shield</td><td>2,500</td><td>3,500</td><td>5,000+</td><td>3,000</td></tr>
-<tr><td>Ele Resist</td><td>3,700</td><td>4,500</td><td>6,000+</td><td>4,500</td></tr>
-<tr><td>Faction Resist</td><td>4,600</td><td>5,500</td><td>7,000+</td><td>5,000</td></tr>
-<tr><td>Crit Resist</td><td>3,150</td><td>4,000</td><td>5,000+</td><td>4,000</td></tr>
-<tr><td>Block</td><td>—</td><td>5,000</td><td>8,000+</td><td>—</td></tr>
+<tr><th><span class="en">Stat</span><span class="th">สเตตัส</span></th><th>DPS</th><th><span class="en">Front-DPS</span><span class="th">DPS แนวหน้า</span></th><th><span class="en">Tank</span><span class="th">แทงค์</span></th><th><span class="en">Healer</span><span class="th">ฮีล</span></th></tr>
+<tr><td><span class="en">ATK (攻击)</span><span class="th">โจมตี (攻击)</span></td><td>16,000</td><td>14,000</td><td>—</td><td>12,000</td></tr>
+<tr><td><span class="en">DEF Pen (破防)</span><span class="th">ทะลุเกราะ (破防)</span></td><td>12,500</td><td>11,000</td><td>—</td><td>—</td></tr>
+<tr><td><span class="en">Ele ATK (元素攻击)</span><span class="th">โจมตีธาตุ (元素攻击)</span></td><td>5,000</td><td>4,000</td><td>—</td><td>—</td></tr>
+<tr><td><span class="en">Ele Ignore (元素无视)</span><span class="th">เพิกเฉยธาตุ (元素无视)</span></td><td>1,600</td><td>1,200</td><td>—</td><td>—</td></tr>
+<tr><td><span class="en">Crit (会心)</span><span class="th">คริติคอล (会心)</span></td><td>6,000</td><td>5,000</td><td>—</td><td>—</td></tr>
+<tr><td><span class="en">Crit DMG (会心伤害)</span><span class="th">ความเสียหายคริ (会心伤害)</span></td><td>190%</td><td>180%</td><td>—</td><td>—</td></tr>
+<tr><td><span class="en">Shield Break (破盾)</span><span class="th">ทำลายโล่ (破盾)</span></td><td>350</td><td>250</td><td>—</td><td>—</td></tr>
+<tr><td><span class="en">Faction Restraint (流派克制)</span><span class="th">ข่มสำนัก (流派克制)</span></td><td>8,300</td><td>7,000</td><td>—</td><td>—</td></tr>
+<tr><td><span class="en">DEF (防御)</span><span class="th">ป้องกัน (防御)</span></td><td>13,000</td><td>15,000</td><td>18,000+</td><td>14,000</td></tr>
+<tr><td><span class="en">Qi Shield (气盾)</span><span class="th">โล่ชี่ (气盾)</span></td><td>2,500</td><td>3,500</td><td>5,000+</td><td>3,000</td></tr>
+<tr><td><span class="en">Ele Resist (元素抗性)</span><span class="th">ต้านธาตุ (元素抗性)</span></td><td>3,700</td><td>4,500</td><td>6,000+</td><td>4,500</td></tr>
+<tr><td><span class="en">Faction Resist (流派抵御)</span><span class="th">ต้านสำนัก (流派抵御)</span></td><td>4,600</td><td>5,500</td><td>7,000+</td><td>5,000</td></tr>
+<tr><td><span class="en">Crit Resist (会心抗性)</span><span class="th">ต้านคริ (会心抗性)</span></td><td>3,150</td><td>4,000</td><td>5,000+</td><td>4,000</td></tr>
+<tr><td><span class="en">Block (格挡)</span><span class="th">บล็อก (格挡)</span></td><td>—</td><td>5,000</td><td>8,000+</td><td>—</td></tr>
 </table>
 
-<h4 class="sub">Season 2 PVP Substat Tier (v2.1.1)</h4>
+<h4 class="sub"><span class="en">Season 2 PVP Substat Tier (v2.1.1)</span><span class="th">ลำดับสเตตัสย่อย PVP ซีซัน 2 (v2.1.1)</span></h4>
 <table>
-<tr><th>Tier</th><th>Attribute</th></tr>
-<tr><td><span class="tier t0">S</span></td><td>Shield Break (破盾), STR/Spirit, ATK, All-Ele ATK</td></tr>
-<tr><td><span class="tier t1">S−</span></td><td>DEF Pen, Ele·Yaowang, Min/Max ATK, Crit</td></tr>
-<tr><td><span class="tier t15">A</span></td><td>Constitution, Agility, Endurance (↑ if Mega-Trait matches), Accuracy, DEF, Inner/Outer Qi Shield</td></tr>
-<tr><td><span class="tier t2">A−</span></td><td>Inner DEF, Outer DEF, All-Ele Resist</td></tr>
-<tr><td><span class="tier t15">B</span></td><td>Anti-Inner Crit, Anti-Outer Crit</td></tr>
-<tr><td><span class="tier t3">C</span></td><td>Block, Inner Block, Outer Block</td></tr>
-<tr><td><span class="tier t3">D</span></td><td>Faction Restraint (too low per point), Resist</td></tr>
+<tr><th><span class="en">Tier</span><span class="th">ลำดับ</span></th><th><span class="en">Attribute</span><span class="th">สเตตัส</span></th></tr>
+<tr><td><span class="tier t0">S</span></td><td><span class="en">Shield Break (破盾), STR/Spirit, ATK, All-Ele ATK</span><span class="th">ทำลายโล่ (破盾), STR/Spirit, โจมตี, โจมตีธาตุรวม</span></td></tr>
+<tr><td><span class="tier t1">S−</span></td><td><span class="en">DEF Pen (破防), Ele·Yaowang, Min/Max ATK, Crit (会心)</span><span class="th">ทะลุเกราะ (破防), ธาตุ·เย่าหวัง, โจมตีต่ำ/สูงสุด, คริ (会心)</span></td></tr>
+<tr><td><span class="tier t15">A</span></td><td><span class="en">Constitution, Agility, Endurance (↑ if Mega-Trait matches), Accuracy, DEF, Inner/Outer Qi Shield (气盾)</span><span class="th">ร่างกาย, ว่องไว, ทนทาน (↑ ถ้าตรง Mega-Trait), แม่นยำ, ป้องกัน, โล่ชี่ใน/นอก (气盾)</span></td></tr>
+<tr><td><span class="tier t2">A−</span></td><td><span class="en">Inner DEF, Outer DEF, All-Ele Resist (元素抗性)</span><span class="th">ป้องกันใน, ป้องกันนอก, ต้านธาตุรวม (元素抗性)</span></td></tr>
+<tr><td><span class="tier t15">B</span></td><td><span class="en">Anti-Inner Crit, Anti-Outer Crit</span><span class="th">ต้านคริใน, ต้านครินอก</span></td></tr>
+<tr><td><span class="tier t3">C</span></td><td><span class="en">Block (格挡), Inner Block, Outer Block</span><span class="th">บล็อก (格挡), บล็อกใน, บล็อกนอก</span></td></tr>
+<tr><td><span class="tier t3">D</span></td><td><span class="en">Faction Restraint (流派克制) (too low per point), Resist</span><span class="th">ข่มสำนัก (流派克制) (ต่ำเกินต่อจุด), ต้านทาน</span></td></tr>
 </table>
 
-<h4 class="sub">Season 3 (3.0–3.1) PVP Panel Targets (Guild League)</h4>
+<h4 class="sub"><span class="en">Season 3 (3.0–3.1) PVP Panel Targets (Guild League)</span><span class="th">เป้าหมายแผงสเตตัส PVP ซีซัน 3 (3.0–3.1) (ลีกสำนัก)</span></h4>
 <table>
-<tr><th>Stat</th><th>DPS</th><th>Front-DPS</th><th>Tank</th><th>Healer</th></tr>
-<tr><td>Crit</td><td><strong>≥ 11,000</strong></td><td>9,000</td><td>—</td><td>—</td></tr>
-<tr><td>Crit Resist</td><td>8,000</td><td>9,000</td><td>10,000+</td><td>9,000</td></tr>
-<tr><td>ATK</td><td>40,000+</td><td>35,000</td><td>—</td><td>30,000</td></tr>
-<tr><td>DEF Pen</td><td>25,000+</td><td>22,000</td><td>—</td><td>—</td></tr>
-<tr><td>Ele ATK</td><td>15,000+</td><td>12,000</td><td>—</td><td>—</td></tr>
-<tr><td>Shield Break</td><td>800+</td><td>500</td><td>—</td><td>—</td></tr>
-<tr><td>Faction Restraint</td><td>20,000+</td><td>17,000</td><td>—</td><td>—</td></tr>
-<tr><td>DEF</td><td>25,000</td><td>30,000</td><td>40,000+</td><td>28,000</td></tr>
-<tr><td>Qi Shield</td><td>5,000</td><td>7,000</td><td>10,000+</td><td>6,000</td></tr>
-<tr><td>Ele Resist</td><td>8,000</td><td>10,000</td><td>14,000+</td><td>10,000</td></tr>
-<tr><td>Faction Resist</td><td>10,000</td><td>13,000</td><td>16,000+</td><td>12,000</td></tr>
-<tr><td>Gear Score</td><td colspan="4"><strong>≥ 137+ mandatory (NO old season gear!)</strong></td></tr>
+<tr><th><span class="en">Stat</span><span class="th">สเตตัส</span></th><th>DPS</th><th><span class="en">Front-DPS</span><span class="th">DPS แนวหน้า</span></th><th><span class="en">Tank</span><span class="th">แทงค์</span></th><th><span class="en">Healer</span><span class="th">ฮีล</span></th></tr>
+<tr><td><span class="en">Crit (会心)</span><span class="th">คริติคอล (会心)</span></td><td><strong>≥ 11,000</strong></td><td>9,000</td><td>—</td><td>—</td></tr>
+<tr><td><span class="en">Crit Resist (会心抗性)</span><span class="th">ต้านคริ (会心抗性)</span></td><td>8,000</td><td>9,000</td><td>10,000+</td><td>9,000</td></tr>
+<tr><td><span class="en">ATK (攻击)</span><span class="th">โจมตี (攻击)</span></td><td>40,000+</td><td>35,000</td><td>—</td><td>30,000</td></tr>
+<tr><td><span class="en">DEF Pen (破防)</span><span class="th">ทะลุเกราะ (破防)</span></td><td>25,000+</td><td>22,000</td><td>—</td><td>—</td></tr>
+<tr><td><span class="en">Ele ATK (元素攻击)</span><span class="th">โจมตีธาตุ (元素攻击)</span></td><td>15,000+</td><td>12,000</td><td>—</td><td>—</td></tr>
+<tr><td><span class="en">Shield Break (破盾)</span><span class="th">ทำลายโล่ (破盾)</span></td><td>800+</td><td>500</td><td>—</td><td>—</td></tr>
+<tr><td><span class="en">Faction Restraint (流派克制)</span><span class="th">ข่มสำนัก (流派克制)</span></td><td>20,000+</td><td>17,000</td><td>—</td><td>—</td></tr>
+<tr><td><span class="en">DEF (防御)</span><span class="th">ป้องกัน (防御)</span></td><td>25,000</td><td>30,000</td><td>40,000+</td><td>28,000</td></tr>
+<tr><td><span class="en">Qi Shield (气盾)</span><span class="th">โล่ชี่ (气盾)</span></td><td>5,000</td><td>7,000</td><td>10,000+</td><td>6,000</td></tr>
+<tr><td><span class="en">Ele Resist (元素抗性)</span><span class="th">ต้านธาตุ (元素抗性)</span></td><td>8,000</td><td>10,000</td><td>14,000+</td><td>10,000</td></tr>
+<tr><td><span class="en">Faction Resist (流派抵御)</span><span class="th">ต้านสำนัก (流派抵御)</span></td><td>10,000</td><td>13,000</td><td>16,000+</td><td>12,000</td></tr>
+<tr><td><span class="en">Gear Score</span><span class="th">คะแนนอุปกรณ์</span></td><td colspan="4"><strong><span class="en">≥ 137+ mandatory (NO old season gear!)</span><span class="th">≥ 137+ บังคับ (ห้ามใช้อุปกรณ์ซีซันเก่า!)</span></strong></td></tr>
 </table>
 
-<h4 class="sub">S3 PVP — After Crit ≥ 11,000 → Priority Order</h4>
-<div class="fb"><span class="l">🏆 DPS PRIORITY (after 11K Crit)</span>
-1. ATK (攻击)
+<h4 class="sub"><span class="en">S3 PVP — After Crit ≥ 11,000 → Priority Order</span><span class="th">S3 PVP — หลังคริ ≥ 11,000 → ลำดับความสำคัญ</span></h4>
+<div class="fb"><span class="l">🏆 <span class="en">DPS PRIORITY (after 11K Crit)</span><span class="th">ลำดับ DPS (หลังคริ 11K)</span></span>
+<span class="en">1. ATK (攻击)
 2. Faction Restraint (流派克制)
 3. Shield Break (破盾)
 4. Crit DMG (会心伤害)
-5. DEF Pen (破防)</div>
+5. DEF Pen (破防)</span><span class="th">1. โจมตี (攻击)
+2. ข่มสำนัก (流派克制)
+3. ทำลายโล่ (破盾)
+4. ความเสียหายคริ (会心伤害)
+5. ทะลุเกราะ (破防)</span></div>
 
-<div class="fb"><span class="l">🛡️ TANK/HEALER PRIORITY (after 10K Crit Resist)</span>
-1. DEF (防御)
+<div class="fb"><span class="l">🛡️ <span class="en">TANK/HEALER PRIORITY (after 10K Crit Resist)</span><span class="th">ลำดับแทงค์/ฮีล (หลังต้านคริ 10K)</span></span>
+<span class="en">1. DEF (防御)
 2. Qi Shield (气盾)
 3. Faction Resist (流派抵御)
 4. Ele Resist (元素抗性)
-5. HP (气血)</div>
+5. HP (气血)</span><span class="th">1. ป้องกัน (防御)
+2. โล่ชี่ (气盾)
+3. ต้านสำนัก (流派抵御)
+4. ต้านธาตุ (元素抗性)
+5. พลังชีวิต (气血)</span></div>
 
-<h4 class="sub">S3 PVP Crafting (打造) Priority</h4>
+<h4 class="sub"><span class="en">S3 PVP Crafting (打造) Priority</span><span class="th">ลำดับคราฟต์ (打造) PVP S3</span></h4>
 <table>
-<tr><th>Slot</th><th>Best Craft Name</th><th>Alt Choice</th></tr>
-<tr><td>Weapon</td><td>Shouling·Zhaozui Sheyuan (首领·招罪摄远)</td><td>Cengluan Yunli (层峦云砺)</td></tr>
-<tr><td>Shoes</td><td>Jiqie Songshang (极切松上) / Qinglei Jianghua (清雷降华)</td><td>Jiuyao Lieyu (九曜烈御)</td></tr>
-<tr><td>Necklace</td><td>Own class high-burst skill craft</td><td>Varies by class</td></tr>
-<tr><td>Bracer</td><td>Poqiong Diezhang (破穹叠嶂)</td><td>Dieying Changlu (叠影长露)</td></tr>
-<tr><td>Armor</td><td>Zhuchao Ningkai (竹巢凝铠)</td><td>—</td></tr>
-<tr><td>Belt</td><td>Red Shengyu Sulun (盛御素纶)</td><td>Naqi Guicang (纳气归藏)</td></tr>
+<tr><th><span class="en">Slot</span><span class="th">ช่อง</span></th><th><span class="en">Best Craft Name</span><span class="th">ชื่อคราฟต์ที่ดีที่สุด</span></th><th><span class="en">Alt Choice</span><span class="th">ตัวเลือกรอง</span></th></tr>
+<tr><td><span class="en">Weapon</span><span class="th">อาวุธ</span></td><td><span class="en">Shouling·Zhaozui Sheyuan (首领·招罪摄远)</span><span class="th">โช่วหลิง·เจาจุ้ยเช่อหยวน (首领·招罪摄远)</span></td><td><span class="en">Cengluan Yunli (层峦云砺)</span><span class="th">เฉิงหลวนหยุนลี่ (层峦云砺)</span></td></tr>
+<tr><td><span class="en">Shoes</span><span class="th">รองเท้า</span></td><td><span class="en">Jiqie Songshang (极切松上) / Qinglei Jianghua (清雷降华)</span><span class="th">จี๋เชี่ยซงซ่าง (极切松上) / ชิงเหลยเจี้ยงหัว (清雷降华)</span></td><td><span class="en">Jiuyao Lieyu (九曜烈御)</span><span class="th">จิ่วเย่าเลี่ยอวี้ (九曜烈御)</span></td></tr>
+<tr><td><span class="en">Necklace</span><span class="th">สร้อย</span></td><td><span class="en">Own class high-burst skill craft</span><span class="th">คราฟต์สกิลบุกสูงตามอาชีพ</span></td><td><span class="en">Varies by class</span><span class="th">แตกต่างตามอาชีพ</span></td></tr>
+<tr><td><span class="en">Bracer</span><span class="th">ปลอกแขน</span></td><td><span class="en">Poqiong Diezhang (破穹叠嶂)</span><span class="th">พัวฉยงเตี๋ยจ้าง (破穹叠嶂)</span></td><td><span class="en">Dieying Changlu (叠影长露)</span><span class="th">เตี๋ยอิ่งฉางลู่ (叠影长露)</span></td></tr>
+<tr><td><span class="en">Armor</span><span class="th">เกราะ</span></td><td><span class="en">Zhuchao Ningkai (竹巢凝铠)</span><span class="th">จู๋เฉานิ่งข่าย (竹巢凝铠)</span></td><td>—</td></tr>
+<tr><td><span class="en">Belt</span><span class="th">เข็มขัด</span></td><td><span class="en">Red Shengyu Sulun (盛御素纶)</span><span class="th">เซิ่งอวี้ซู่หลุน (盛御素纶)</span></td><td><span class="en">Naqi Guicang (纳气归藏)</span><span class="th">น่าชี่กุยฉาง (纳气归藏)</span></td></tr>
 </table>
 
-<h4 class="sub">S3 PVP Inner Skills (3.1.1 สำหรับ League/Guild War)</h4>
+<h4 class="sub"><span class="en">S3 PVP Inner Skills (3.1.1 — League / Guild War)</span><span class="th">วิชาภายใน PVP S3 (3.1.1 — ลีก / สงครามสำนัก)</span></h4>
 <table>
-<tr><th>Priority</th><th>Inner Skill Name</th><th>Effect</th></tr>
-<tr><td><span class="tier t0">Must</span></td><td>Poxiao Cuixing (破晓催星)</td><td>Highest PVP burst multiplier</td></tr>
-<tr><td><span class="tier t0">Must</span></td><td>Fanling Jue (返灵诀)</td><td>Self-heal + DMG boost on kill</td></tr>
-<tr><td><span class="tier t1">Core</span></td><td>Fengxu (风墟)</td><td>Movement speed + evasion</td></tr>
-<tr><td><span class="tier t1">Core</span></td><td>Class Skill-Tag Inner Skill</td><td>+12% to your main skill category</td></tr>
-<tr><td><span class="tier t15">Good</span></td><td>Poji (破寂)</td><td>Ignore shield %</td></tr>
-<tr><td><span class="tier t15">Good</span></td><td>Zhuofeng Jingyu (斫锋镜羽)</td><td>Crit DMG boost</td></tr>
-<tr><td><span class="tier t2">Flex</span></td><td>Guanshan Yue (关山月)</td><td>Team-wide buff</td></tr>
-<tr><td><span class="tier t2">Flex</span></td><td>Rongjia (融甲)</td><td>Penetration boost</td></tr>
-<tr><td><span class="tier t3">Backup</span></td><td>Kunwu / Riyue / Dangjiang</td><td>Filler if missing above</td></tr>
+<tr><th><span class="en">Priority</span><span class="th">ลำดับ</span></th><th><span class="en">Inner Skill Name</span><span class="th">ชื่อวิชาภายใน</span></th><th><span class="en">Effect</span><span class="th">ผลลัพธ์</span></th></tr>
+<tr><td><span class="tier t0"><span class="en">Must</span><span class="th">จำเป็น</span></span></td><td><span class="en">Dawn Star — Poxiao Cuixing (破晓催星)</span><span class="th">ดาวรุ่งอรุณ — พัวเสี่ยวชุยซิง (破晓催星)</span></td><td><span class="en">Highest PVP burst multiplier</span><span class="th">ตัวคูณบุก PVP สูงสุด</span></td></tr>
+<tr><td><span class="tier t0"><span class="en">Must</span><span class="th">จำเป็น</span></span></td><td><span class="en">Spirit Return — Fanling Jue (返灵诀)</span><span class="th">คืนวิญญาณ — ฝ่านหลิงเจวี๋ย (返灵诀)</span></td><td><span class="en">Self-heal + DMG boost on kill</span><span class="th">ฮีลตัวเอง + เพิ่ม DMG เมื่อสังหาร</span></td></tr>
+<tr><td><span class="tier t1"><span class="en">Core</span><span class="th">หลัก</span></span></td><td><span class="en">Wind Ruins — Fengxu (风墟)</span><span class="th">ซากลม — เฟิงซวี (风墟)</span></td><td><span class="en">Movement speed + evasion</span><span class="th">ความเร็วเคลื่อนที่ + หลบ</span></td></tr>
+<tr><td><span class="tier t1"><span class="en">Core</span><span class="th">หลัก</span></span></td><td><span class="en">Class Skill-Tag Inner Skill</span><span class="th">วิชาภายในตาม Tag สกิลอาชีพ</span></td><td><span class="en">+12% to your main skill category</span><span class="th">+12% ต่อหมวดสกิลหลัก</span></td></tr>
+<tr><td><span class="tier t15"><span class="en">Good</span><span class="th">ดี</span></span></td><td><span class="en">Breaking Silence — Poji (破寂)</span><span class="th">แหกความเงียบ — พัวจี้ (破寂)</span></td><td><span class="en">Ignore shield %</span><span class="th">เพิกเฉยโล่ %</span></td></tr>
+<tr><td><span class="tier t15"><span class="en">Good</span><span class="th">ดี</span></span></td><td><span class="en">Honed Edge Mirror Feather — Zhuofeng Jingyu (斫锋镜羽)</span><span class="th">คมกระจกขนนก — จั่วเฟิงจิ้งอวี่ (斫锋镜羽)</span></td><td><span class="en">Crit DMG boost</span><span class="th">เพิ่มความเสียหายคริ</span></td></tr>
+<tr><td><span class="tier t2"><span class="en">Flex</span><span class="th">ยืดหยุ่น</span></span></td><td><span class="en">Moon over Passes — Guanshan Yue (关山月)</span><span class="th">จันทร์เหนือด่าน — กวานซานเยว่ (关山月)</span></td><td><span class="en">Team-wide buff</span><span class="th">บัฟทั้งทีม</span></td></tr>
+<tr><td><span class="tier t2"><span class="en">Flex</span><span class="th">ยืดหยุ่น</span></span></td><td><span class="en">Armor Melt — Rongjia (融甲)</span><span class="th">หลอมเกราะ — หรงเจี่ย (融甲)</span></td><td><span class="en">Penetration boost</span><span class="th">เพิ่มค่าเจาะ</span></td></tr>
+<tr><td><span class="tier t3"><span class="en">Backup</span><span class="th">สำรอง</span></span></td><td><span class="en">Kunwu (昆吾) / Riyue (日月) / Dangjiang (当江)</span><span class="th">คุนหวู (昆吾) / รื่อเยว่ (日月) / ตังเจียง (当江)</span></td><td><span class="en">Filler if missing above</span><span class="th">เติมถ้าขาดข้างบน</span></td></tr>
 </table>
 </div></div>
 
 <!-- ==================== INNER SKILL ==================== -->
 <div class="sec" id="inner">
-<div class="sh" onclick="T(this)"><h2>📖 Inner Skill (内功) PVE Tier — Season 2 Reference</h2><span class="a">▼</span></div>
+<div class="sh" onclick="T(this)"><h2>📖 <span class="en">Inner Skill (内功) PVE Tier — Season 2 Reference</span><span class="th">วิชาภายใน (内功) ลำดับ PVE — อ้างอิงซีซัน 2</span></h2><span class="a">▼</span></div>
 <div class="sb">
 <table>
-<tr><th>Tier</th><th>Name</th><th>Element</th><th>DPS Gain</th><th>w/ Lingwen</th><th>Best For</th></tr>
-<tr><td><span class="tier t0">T0</span></td><td class="left"><strong>Linfeng Jueren 凛风绝刃</strong></td><td>G/W★</td><td>7–10%</td><td>10–13%</td><td>All DPS</td></tr>
-<tr><td><span class="tier t0">T0</span></td><td class="left"><strong>Mingyou 明佑</strong></td><td>F/W</td><td>8.5%</td><td>10.5%</td><td>All DPS (slot first)</td></tr>
-<tr><td><span class="tier t1">T1</span></td><td class="left"><strong>Hanjinque 撼金阙</strong></td><td>G</td><td>7%</td><td>8.8%</td><td>All (needs Crit ≥ 3K)</td></tr>
-<tr><td><span class="tier t1">T1</span></td><td class="left"><strong>Tongwei 通微</strong></td><td>W</td><td>6.5%</td><td>8%</td><td>All</td></tr>
-<tr><td><span class="tier t1">T1</span></td><td class="left"><strong>Pofu 破釜</strong></td><td>G</td><td>6.2%</td><td>7.7%</td><td>High-ATK classes</td></tr>
-<tr><td><span class="tier t15">T1.5</span></td><td class="left"><strong>Riyue 日月两仪</strong></td><td>F/E★</td><td>5%</td><td>7.5%</td><td>All (stable uptime)</td></tr>
-<tr><td><span class="tier t15">T1.5</span></td><td class="left"><strong>Kunwu 昆吾断玉</strong></td><td>G/F★</td><td>4.5%</td><td>7%</td><td>Crit ≥ 3800</td></tr>
-<tr><td><span class="tier t15">T1.5</span></td><td class="left"><strong>Liaoye 燎野</strong></td><td>F</td><td>4.5%</td><td>5.5%</td><td>Long fights only</td></tr>
-<tr><td><span class="tier t2">T2</span></td><td class="left"><strong>Pochongyun 破重云</strong></td><td>W</td><td>4.5%</td><td>5.3%</td><td>All (Restraint %)</td></tr>
-<tr><td><span class="tier t2">T2</span></td><td class="left"><strong>Xiaogange 销干戈</strong></td><td>G</td><td>4.3%</td><td>5.3%</td><td>AoE scenarios (7%!)</td></tr>
-<tr><td><span class="tier t2">T2</span></td><td class="left"><strong>Duanjinge 断金戈</strong></td><td>G</td><td>6% (if burst>50%)</td><td>—</td><td>Jiuling, Xuanji, Shenxiang</td></tr>
-<tr><td><span class="tier t2">T2</span></td><td class="left"><strong>Chongxu 冲虚</strong></td><td>W</td><td>5% (if single>40%)</td><td>—</td><td>Tianwen (Suwen DPS)</td></tr>
+<tr><th><span class="en">Tier</span><span class="th">ลำดับ</span></th><th><span class="en">Name</span><span class="th">ชื่อ</span></th><th><span class="en">Element</span><span class="th">ธาตุ</span></th><th><span class="en">DPS Gain</span><span class="th">เพิ่ม DPS</span></th><th><span class="en">w/ Lingwen</span><span class="th">กับหลิงเหวิน</span></th><th><span class="en">Best For</span><span class="th">เหมาะสำหรับ</span></th></tr>
+<tr><td><span class="tier t0">T0</span></td><td class="left"><strong><span class="en">Frigid Wind Blade — Linfeng Jueren (凛风绝刃)</span><span class="th">ใบมีดลมหนาว — หลินเฟิงเจว๋ยเริ่น (凛风绝刃)</span></strong></td><td>G/W★</td><td>7–10%</td><td>10–13%</td><td><span class="en">All DPS</span><span class="th">DPS ทุกอาชีพ</span></td></tr>
+<tr><td><span class="tier t0">T0</span></td><td class="left"><strong><span class="en">Bright Blessing — Mingyou (明佑)</span><span class="th">พรแห่งแสง — หมิงโย่ว (明佑)</span></strong></td><td>F/W</td><td>8.5%</td><td>10.5%</td><td><span class="en">All DPS (slot first)</span><span class="th">DPS ทุกอาชีพ (ใส่ก่อน)</span></td></tr>
+<tr><td><span class="tier t1">T1</span></td><td class="left"><strong><span class="en">Shaking Gold Palace — Hanjinque (撼金阙)</span><span class="th">สั่นสะเทือนวังทอง — ฮั่นจินเชว่ย (撼金阙)</span></strong></td><td>G</td><td>7%</td><td>8.8%</td><td><span class="en">All (needs Crit ≥ 3K)</span><span class="th">ทุกอาชีพ (ต้องคริ ≥ 3K)</span></td></tr>
+<tr><td><span class="tier t1">T1</span></td><td class="left"><strong><span class="en">Subtle Insight — Tongwei (通微)</span><span class="th">ญาณหยั่งรู้ — ทงเวย (通微)</span></strong></td><td>W</td><td>6.5%</td><td>8%</td><td><span class="en">All</span><span class="th">ทุกอาชีพ</span></td></tr>
+<tr><td><span class="tier t1">T1</span></td><td class="left"><strong><span class="en">Breaking Cauldron — Pofu (破釜)</span><span class="th">ถังแตก — พัวฝู่ (破釜)</span></strong></td><td>G</td><td>6.2%</td><td>7.7%</td><td><span class="en">High-ATK classes</span><span class="th">อาชีพ ATK สูง</span></td></tr>
+<tr><td><span class="tier t15">T1.5</span></td><td class="left"><strong><span class="en">Sun &amp; Moon Duality — Riyue (日月两仪)</span><span class="th">สุริยันจันทรา — รื่อเยว่ (日月两仪)</span></strong></td><td>F/E★</td><td>5%</td><td>7.5%</td><td><span class="en">All (stable uptime)</span><span class="th">ทุกอาชีพ (uptime มั่นคง)</span></td></tr>
+<tr><td><span class="tier t15">T1.5</span></td><td class="left"><strong><span class="en">Kunwu Jade Severer — Kunwu (昆吾断玉)</span><span class="th">ตัดหยกคุนหวู — คุนหวู (昆吾断玉)</span></strong></td><td>G/F★</td><td>4.5%</td><td>7%</td><td><span class="en">Crit ≥ 3,800</span><span class="th">คริ ≥ 3,800</span></td></tr>
+<tr><td><span class="tier t15">T1.5</span></td><td class="left"><strong><span class="en">Prairie Fire — Liaoye (燎野)</span><span class="th">ไฟลามทุ่ง — เหลียวเย่ (燎野)</span></strong></td><td>F</td><td>4.5%</td><td>5.5%</td><td><span class="en">Long fights only</span><span class="th">ไฟต์ยาวเท่านั้น</span></td></tr>
+<tr><td><span class="tier t2">T2</span></td><td class="left"><strong><span class="en">Piercing Clouds — Pochongyun (破重云)</span><span class="th">ทะลุเมฆ — พัวฉงหยุน (破重云)</span></strong></td><td>W</td><td>4.5%</td><td>5.3%</td><td><span class="en">All (Restraint %)</span><span class="th">ทุกอาชีพ (% ข่ม)</span></td></tr>
+<tr><td><span class="tier t2">T2</span></td><td class="left"><strong><span class="en">Melting Weapons — Xiaogange (销干戈)</span><span class="th">หลอมอาวุธ — เซียวกานเกอ (销干戈)</span></strong></td><td>G</td><td>4.3%</td><td>5.3%</td><td><span class="en">AoE scenarios (7%!)</span><span class="th">สถานการณ์ AoE (7%!)</span></td></tr>
+<tr><td><span class="tier t2">T2</span></td><td class="left"><strong><span class="en">Golden Halberd — Duanjinge (断金戈)</span><span class="th">ง้าวทอง — ตวนจินเกอ (断金戈)</span></strong></td><td>G</td><td><span class="en">6% (if burst>50%)</span><span class="th">6% (ถ้าบุก>50%)</span></td><td>—</td><td><span class="en">Nine Spirits (九灵), Mystic (玄机), Divine Visage (神相)</span><span class="th">เก้าวิญญาณ (九灵), ปริศนา (玄机), เทพพยากรณ์ (神相)</span></td></tr>
+<tr><td><span class="tier t2">T2</span></td><td class="left"><strong><span class="en">Void Rush — Chongxu (冲虚)</span><span class="th">ทะลุสุญญากาศ — ชงซวี (冲虚)</span></strong></td><td>W</td><td><span class="en">5% (if single>40%)</span><span class="th">5% (ถ้าเป้าเดียว>40%)</span></td><td>—</td><td><span class="en">Tianwen — Plain Questions DPS (素问DPS)</span><span class="th">เทียนเหวิน — สุเหวิน DPS (素问DPS)</span></td></tr>
 </table>
 
-<div class="tip"><strong>💡 เลือก Inner Skill ยังไง:</strong><br>
-1. <strong>Linfeng + Mingyou</strong> = ใส่ก่อนเสมอ (T0 ไม่สนเรื่อง词条)<br>
-2. เติมด้วย <strong>Hanjinque / Pofu / Tongwei</strong> ให้ตรง Zhou Tian cycle<br>
-3. <strong>Duanjinge</strong> จำเป็นถ้า Burst Skill > 50% ของ Total DMG<br>
-4. <strong>词条ดี 2 บรรทัด ≈ +3% DPS ≈ 1 full inner skill trait</strong> → 词条สำคัญกว่า trait!</div>
+<div class="tip"><strong>💡 <span class="en">How to choose Inner Skills:</span><span class="th">วิธีเลือกวิชาภายใน:</span></strong><br>
+<span class="en">1. <strong>Frigid Wind Blade (凛风绝刃) + Bright Blessing (明佑)</strong> = always slot first (T0, no affix requirement)</span><span class="th">1. <strong>ใบมีดลมหนาว (凛风绝刃) + พรแห่งแสง (明佑)</strong> = ใส่ก่อนเสมอ (T0 ไม่สนเรื่องคำนำหน้า)</span><br>
+<span class="en">2. Fill with <strong>Shaking Gold Palace (撼金阙) / Breaking Cauldron (破釜) / Subtle Insight (通微)</strong> matching your Zhou Tian (周天) cycle</span><span class="th">2. เติมด้วย <strong>สั่นสะเทือนวังทอง (撼金阙) / ถังแตก (破釜) / ญาณหยั่งรู้ (通微)</strong> ให้ตรงวงจรโจวเทียน (周天)</span><br>
+<span class="en">3. <strong>Golden Halberd (断金戈)</strong> is mandatory if Burst Skill > 50% of Total DMG</span><span class="th">3. <strong>ง้าวทอง (断金戈)</strong> จำเป็นถ้าสกิลบุก > 50% ของ DMG รวม</span><br>
+<span class="en">4. <strong>Good 2-line Affix (词条) ≈ +3% DPS ≈ 1 full inner skill</strong> → Affix matters more than trait!</span><span class="th">4. <strong>คำนำหน้า (词条) ดี 2 บรรทัด ≈ +3% DPS ≈ 1 วิชาภายในเต็ม</strong> → คำนำหน้าสำคัญกว่า trait!</span></div>
 </div></div>
 
 </div>
 
 <footer class="footer">
-<p>Data: Tieba @星语困 / B站 @白宝正不正, @—风何往—, @清纯男大阿娟 / NGA / 17173 / Bahamut / nshmcalc / Fandom Wiki</p>
-<p>April 2026 — Season 3 data still evolving. Formulas adjusted per patch.</p>
+<p><span class="en">Data: Tieba @星语困 / Bilibili @白宝正不正, @—风何往—, @清纯男大阿娟 / NGA / 17173 / Bahamut / nshmcalc / Fandom Wiki</span><span class="th">ข้อมูล: Tieba @星语困 / Bilibili @白宝正不正, @—风何往—, @清纯男大阿娟 / NGA / 17173 / Bahamut / nshmcalc / Fandom Wiki</span></p>
+<p><span class="en">April 2026 — Season 3 data still evolving. Formulas adjusted per patch.</span><span class="th">เมษายน 2026 — ข้อมูลซีซัน 3 ยังอัพเดตอยู่ สูตรคำนวณปรับตามแพทช์</span></p>
 </footer>
 
-<script>function T(h){h.classList.toggle('on');h.nextElementSibling.classList.toggle('show')}</script>
+<script>
+function T(h){h.classList.toggle('on');h.nextElementSibling.classList.toggle('show')}
+function switchLang(lang){
+  document.body.className=lang;
+  document.getElementById('btn-en').classList.toggle('active',lang==='en');
+  document.getElementById('btn-th').classList.toggle('active',lang==='th');
+}
+</script>
 </body>
 </html>
